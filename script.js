@@ -1,3 +1,67 @@
+
+// Language and direction support
+
+const supportedLanguages = {
+    en: { file: 'i18n/en.json', dir: 'ltr' },
+    ar: { file: 'i18n/ar.json', dir: 'rtl' }
+};
+
+function getLanguageFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (lang && supportedLanguages[lang]) {
+        return lang;
+    }
+    return 'en'; // default language
+}
+
+async function loadLanguage(lang) {
+    const langInfo = supportedLanguages[lang] || supportedLanguages['en'];
+    try {
+        const response = await fetch(langInfo.file);
+        if (!response.ok) throw new Error('Failed to load language file');
+        const translations = await response.json();
+        applyTranslations(translations);
+        setDirection(langInfo.dir);
+    } catch (error) {
+        console.error('Error loading language:', error);
+    }
+}
+
+function applyTranslations(translations) {
+    const elements = document.querySelectorAll('[data-i18n-key]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n-key');
+        if (translations[key]) {
+            el.textContent = translations[key];
+        }
+    });
+}
+
+function setDirection(dir) {
+    document.documentElement.setAttribute('dir', dir);
+}
+
+// Language switcher UI handler
+function setupLanguageSwitcher() {
+    const switcher = document.getElementById('language-switcher');
+    if (!switcher) return;
+    switcher.addEventListener('change', (e) => {
+        const selectedLang = e.target.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', selectedLang);
+        window.location.href = url.toString();
+    });
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const lang = getLanguageFromURL();
+    loadLanguage(lang);
+    setupLanguageSwitcher();
+});
+
+
 var images = [
     'url(./photos/image1.jpg)',
     //'url(./photos/image2.jpg)',
