@@ -186,6 +186,9 @@ function loadLanguage(lang) {
     const langInfo = supportedLanguages[lang] || supportedLanguages['en'];
     applyTranslations(langInfo.translations);
     setDirection(langInfo.dir);
+    // Set html lang and dir attributes
+    document.documentElement.lang = lang;
+    document.documentElement.dir = langInfo.dir;
 }
 
 function applyTranslations(translations) {
@@ -223,7 +226,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setupLanguageSwitcher();
 
+    swiper.destroy(true, true);
     swiper = new Swiper(".mySwiper", {
         rtl: lang === 'ar',
+        // loop: true,
     });
+
+    // if (lang === 'ar') {
+    //     swiper.on('slideChange', () => {
+    //         if (swiper.isBeginning) {
+    //             swiper.allowSlidePrev = false;
+    //         } else {
+    //             swiper.allowSlidePrev = true;
+    //         }
+    //     });
+    //     // Initialize allowSlidePrev based on initial slide
+    //     swiper.allowSlidePrev = !swiper.isBeginning;
+    // }
 });
