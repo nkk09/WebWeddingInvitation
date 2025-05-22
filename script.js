@@ -179,6 +179,10 @@ function getLanguageFromURL() {
     if (lang && supportedLanguages[lang]) {
         return lang;
     }
+    const preferredLang = getPreferredLanguage();
+    if (supportedLanguages[preferredLang]) {
+        return preferredLang;
+    }
     return 'en'; // default language
 }
 
@@ -203,6 +207,15 @@ function applyTranslations(translations) {
 
 function setDirection(dir) {
     document.documentElement.setAttribute('dir', dir);
+}
+
+function getPreferredLanguage() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    const shortLang = browserLang.split('-')[0];
+    if (supportedLanguages[shortLang]) {
+        return shortLang;
+    }
+    return 'en';
 }
 
 function setupLanguageSwitcher() {
