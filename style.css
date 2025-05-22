@@ -375,13 +375,14 @@ select {
     width: 90%;
     font-family: 'Lora';
     max-width: 280px;
+    min-width: 80px;
     margin: 0 auto;
-    height: 45px;
+    height: 30px;
     border: 1px solid;
     background: rgba(72, 72, 72, 0.4);
     border-radius: 0;
-    font-size: 16px;
-    padding: 0 15px;
+    font-size: 14px;
+    padding: 0 5px;
     color: white;
 }
 
@@ -465,11 +466,11 @@ form {
     max-height: 100%;
   }
 }
-#language-switcher {
+/* #language-switcher {
     font-size: 1.2em;
     padding: 5px 10px;
-    min-width: 140px;
-}
+    min-width: 100px;
+} */
 
 /* Fix for RTL text display in swiper slides */
 [dir="rtl"] .swiper-slide {
