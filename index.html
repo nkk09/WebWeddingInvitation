@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <title>Antoine & Sandy</title>
+    <title data-i18n-key="title">Antoine & Sandy</title>
     <style>
         @font-face { font-family: LovelyHome; src: url('LovelyHome.ttf'); } 
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
@@ -25,9 +25,9 @@
         <!-- Language Switcher -->
         <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
             <select id="language-switcher" aria-label="Select Language">
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="ar">العربية</option>
+                <option value="en" data-i18n-key="langEnglish">English</option>
+                <option value="fr" data-i18n-key="langFrench">Français</option>
+                <option value="ar" data-i18n-key="langArabic">العربية</option>
             </select>
         </div>
 
@@ -73,7 +73,111 @@
                             <path d="M8.2 2.5A4.2 4.2 0 005 7.4c.2.9.7 1.8 1.3 2.4a.5.5 0 10.6-.7c-.4-.4-.8-1.2-1-1.9A3.2 3.2 0 1112.2 6c.2.7 0 1.5-.2 2.1a.5.5 0 10.9.4c.3-.8.4-1.8.2-2.7a4.2 4.2 0 00-4.9-3.3zM9 5.7c-.8.1-1.3.9-1.1 1.6l1.6 8.2L8 14c-1-1.2-1.7-1-2.2-.5-.6.6-.8 1-.1 2.1 1.5 2.4 3.7 5 5.8 6.7l6.2-1.2c1.8-2 2-10-1-9.7-.3 0-.7.1-.9.4-.1-1-1-1-1.3-1-.4.1-.7.4-.8.9-.2-1-1-1-1.4-1-.4.2-.9.5-1 1l-.9-4.8c-.2-.8-.9-1.3-1.6-1.1z" fill="white" fill-rule="nonzero"></path></svg>
                     </div>
                 </div>
-                <!-- Additional slides omitted for brevity, add data-i18n-key as needed -->
+                                <div class="swiper-slide">
+                    <div class="parents">
+                        <div class="tgthr" data-i18n-key="togetherWithParents">Together With Their Parents</div>
+                        <div class="names">
+                            <div class="family">
+                                <div class="pnames" data-i18n-key="fatherNames">
+                                    <div>Père Semaan-Nemer &amp; Violette</div>
+                                </div>
+                                <div class="lastname" data-i18n-key="fatherLastName">Boulos</div>
+                            </div>
+                            <div class="pnames">
+                                <div class="family">
+                                    <div class="pnames" data-i18n-key="motherNames">
+                                        <div>Tony &amp; Najah</div>
+                                    </div>
+                                    <div class="lastname" data-i18n-key="motherLastName">Chedid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prompt">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.2 2.5A4.2 4.2 0 005 7.4c.2.9.7 1.8 1.3 2.4a.5.5 0 10.6-.7c-.4-.4-.8-1.2-1-1.9A3.2 3.2 0 1112.2 6c.2.7 0 1.5-.2 2.1a.5.5 0 10.9.4c.3-.8.4-1.8.2-2.7a4.2 4.2 0 00-4.9-3.3zM9 5.7c-.8.1-1.3.9-1.1 1.6l1.6 8.2L8 14c-1-1.2-1.7-1-2.2-.5-.6.6-.8 1-.1 2.1 1.5 2.4 3.7 5 5.8 6.7l6.2-1.2c1.8-2 2-10-1-9.7-.3 0-.7.1-.9.4-.1-1-1-1-1.3-1-.4.1-.7.4-.8.9-.2-1-1-1-1.4-1-.4.2-.9.5-1 1l-.9-4.8c-.2-.8-.9-1.3-1.6-1.1z" fill="white" fill-rule="nonzero"></path></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="wedding">
+                        <div class="date" data-i18n-key="weddingCeremony">Wedding Ceremony</div>
+                        <div class="ceremony">
+                            <div class="ceremonydetails">
+                                <div><i style="font-size:24px;color:white;" class="fa">&#xf017;</i></div>
+                                <div class="lora24b" data-i18n-key="weddingDate">Saturday August 2<sup>nd</sup> 2025</div>
+                                <div class="lora18" data-i18n-key="weddingTime">6:30 pm</div>
+                            </div>
+                            <div class="ceremonydetails">
+                                <div><i style="font-size:24px;color:white;" class="fa">&#xf041;</i></div>
+                                <div class="lora24b" data-i18n-key="churchLocation">Saint George Church<br>Zouq el Kharab</div>
+                                <div class="lovebutton">
+                                    <a href="https://maps.app.goo.gl/XS8MGMsVVFn5hnfF6?g_st=iw" target="_blank" rel="noopener noreferrer" data-i18n-key="churchLocationLink">Church Location</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prompt">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.2 2.5A4.2 4.2 0 005 7.4c.2.9.7 1.8 1.3 2.4a.5.5 0 10.6-.7c-.4-.4-.8-1.2-1-1.9A3.2 3.2 0 1112.2 6c.2.7 0 1.5-.2 2.1a.5.5 0 10.9.4c.3-.8.4-1.8.2-2.7a4.2 4.2 0 00-4.9-3.3zM9 5.7c-.8.1-1.3.9-1.1 1.6l1.6 8.2L8 14c-1-1.2-1.7-1-2.2-.5-.6.6-.8 1-.1 2.1 1.5 2.4 3.7 5 5.8 6.7l6.2-1.2c1.8-2 2-10-1-9.7-.3 0-.7.1-.9.4-.1-1-1-1-1.3-1-.4.1-.7.4-.8.9-.2-1-1-1-1.4-1-.4.2-.9.5-1 1l-.9-4.8c-.2-.8-.9-1.3-1.6-1.1z" fill="white" fill-rule="nonzero"></path></svg>
+                            </div>
+                    </div>
+                <div class="swiper-slide">
+                    <div class="wedding">
+                        <div class="date" data-i18n-key="letsParty">Let's Party</div>
+                        <div class="ceremony">
+                            <div class="ceremonydetails">
+                                <div><i style="font-size:24px;color:white;" class="fa">&#xf017;</i></div>
+                                <div class="lora24b" data-i18n-key="dinner">Dinner</div>
+                                <div class="lora18" data-i18n-key="dinnerTime">7:30 pm</div>
+                            </div>
+                            <div class="ceremonydetails">
+                                <div><i style="font-size:24px;color:white;" class="fa">&#xf041;</i></div>
+                                <div class="lora24b" data-i18n-key="venueLocation">Bourgeois Boheme Venue</div>
+                                <div class="lovebutton">
+                                    <a href="https://maps.app.goo.gl/aSypFugbhWT2VMLg8?g_st=iw" target="_blank" rel="noopener noreferrer" data-i18n-key="venueLocationLink">Venue Location</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prompt">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.2 2.5A4.2 4.2 0 005 7.4c.2.9.7 1.8 1.3 2.4a.5.5 0 10.6-.7c-.4-.4-.8-1.2-1-1.9A3.2 3.2 0 1112.2 6c.2.7 0 1.5-.2 2.1a.5.5 0 10.9.4c.3-.8.4-1.8.2-2.7a4.2 4.2 0 00-4.9-3.3zM9 5.7c-.8.1-1.3.9-1.1 1.6l1.6 8.2L8 14c-1-1.2-1.7-1-2.2-.5-.6.6-.8 1-.1 2.1 1.5 2.4 3.7 5 5.8 6.7l6.2-1.2c1.8-2 2-10-1-9.7-.3 0-.7.1-.9.4-.1-1-1-1-1.3-1-.4.1-.7.4-.8.9-.2-1-1-1-1.4-1-.4.2-.9.5-1 1l-.9-4.8c-.2-.8-.9-1.3-1.6-1.1z" fill="white" fill-rule="nonzero"></path></svg>
+                            </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="wedding">
+                        <div class="date" data-i18n-key="giftRegistry">Gift Registry</div>
+                    </div>
+                        <div class="gift">
+                            <div class="giftdetails" data-i18n-key="giftMessage1">
+                                Your presence is the greatest gift, and your love and support mean the world to us. However, for those who wish, a wedding list is available in all WHISH MONEY branches
+                            </div>
+                            <div class="giftdetails" data-i18n-key="giftMessage2">
+                                ID : 20672804-03 <br>
+                                Phone number : 71 486 921
+                            </div>
+                        </div>
+                        <div class="prompt">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.2 2.5A4.2 4.2 0 005 7.4c.2.9.7 1.8 1.3 2.4a.5.5 0 10.6-.7c-.4-.4-.8-1.2-1-1.9A3.2 3.2 0 1112.2 6c.2.7 0 1.5-.2 2.1a.5.5 0 10.9.4c.3-.8.4-1.8.2-2.7a4.2 4.2 0 00-4.9-3.3zM9 5.7c-.8.1-1.3.9-1.1 1.6l1.6 8.2L8 14c-1-1.2-1.7-1-2.2-.5-.6.6-.8 1-.1 2.1 1.5 2.4 3.7 5 5.8 6.7l6.2-1.2c1.8-2 2-10-1-9.7-.3 0-.7.1-.9.4-.1-1-1-1-1.3-1-.4.1-.7.4-.8.9-.2-1-1-1-1.4-1-.4.2-.9.5-1 1l-.9-4.8c-.2-.8-.9-1.3-1.6-1.1z" fill="white" fill-rule="nonzero"></path></svg>
+                            </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="wedding">
+                        <div class="date" data-i18n-key="beOurGuest">Be our Guest</div>
+                        <div class="inv">
+                            <div data-i18n-key="replyBefore">
+                                Please reply before {DATE}<sup>th</sup> 2025
+                            </div>
+                            <div id="attnum" style="margin-top: 20px;" data-i18n-key="numberOfPersons">Number of persons:</div>
+                            <div id="finalimg"><img src="photos/image7.jpg"></div>
+                            <div style="margin-top: 20px;">
+                                Antoine: <a href="https://wa.me/96171486921" style="color:#fff;" target="_blank">71 486 921</a>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                Sandy: <a href="https://wa.me/96176596562" style="color:#fff;" target="_blank">76 596 562</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

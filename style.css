@@ -464,3 +464,9 @@ form {
     max-height: 100%;
   }
 }
+#language-switcher {
+    font-size: 1.2em;
+    padding: 5px 10px;
+    min-width: 140px;
+}
+

@@ -216,5 +216,9 @@ function setupLanguageSwitcher() {
 document.addEventListener('DOMContentLoaded', () => {
     const lang = getLanguageFromURL();
     loadLanguage(lang);
+    const switcher = document.getElementById('language-switcher');
+    if (switcher) {
+        switcher.value = lang; // Set the select element's value to the current language
+    }
     setupLanguageSwitcher();
 });
