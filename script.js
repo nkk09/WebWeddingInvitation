@@ -213,6 +213,7 @@ function setupLanguageSwitcher() {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const lang = getLanguageFromURL();
     loadLanguage(lang);
@@ -221,4 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
         switcher.value = lang; // Set the select element's value to the current language
     }
     setupLanguageSwitcher();
+
+    swiper = new Swiper(".mySwiper", {
+        rtl: lang === 'ar',
+    });
 });
