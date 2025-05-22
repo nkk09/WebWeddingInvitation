@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 20;
     overflow: hidden;
 }
 .prompt {
@@ -124,7 +124,7 @@ body, html {
     align-items: center;
   }
   .blur {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
 }
     .intro {
         display: flex;
@@ -136,7 +136,7 @@ body, html {
     }
 
   .title {
-    font-family: lovelyHome;
+    font-family: LovelyHome;
     color: white;
     font-size: 70px;
   }
@@ -185,7 +185,7 @@ body, html {
   .verse {
     color: white;
     font-family: 'Lora';
-    font-size: 16px;
+    font-size: 24px;
     text-wrap: pretty;
   }
   .author {
