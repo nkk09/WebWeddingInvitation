@@ -49,8 +49,7 @@ body, html {
     max-height: 735px;
     max-width: 375px;
     margin: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     height: 100%;
     top: 50%;
     left: 50%;
