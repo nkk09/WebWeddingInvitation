@@ -47,11 +47,11 @@ body, html {
 
 .parent {
     position: absolute;
-    max-height: 735px;
+    height: 100vh; /* Changed from fixed height */
+    width: 100vw; /* Changed from fixed width */
     max-width: 375px;
     margin: auto;
     overflow: hidden;
-    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -147,7 +147,7 @@ body, html {
     justify-content: center;
     align-items: center;
     direction: ltr;
-    padding-top: 50px; /* Add this line */
+    padding-top: clamp(20px, 5vh, 50px); /* Add this line */
   }
   .blur {
     background: rgba(0, 0, 0, 0.6);
@@ -165,7 +165,7 @@ body, html {
   .title {
     font-family: LovelyHome;
     color: white;
-    font-size: 70px;
+    font-size: clamp(40px, 10vw, 70px); /* Min: 40px, Preferred: 10vw, Max: 70px */
   }
 
   .lovebutton {
@@ -269,7 +269,7 @@ body, html {
 }
     .date {
     color: white;
-    font-size: 40px;
+    font-size: clamp(28px, 6vw, 40px);
 }
 
   .Bverse {
@@ -282,7 +282,7 @@ body, html {
   }
   .verse {
     color: white;
-    font-size: 22px;
+    font-size: clamp(16px, 4vw, 22px);
     text-wrap: pretty;
   }
   .author {
@@ -306,7 +306,7 @@ body, html {
   .groom, .bride {
     font-family: lovelyHome;
     color: white;
-    font-size: 40px;
+    font-size: clamp(30px, 8vw, 40px);
     margin: 0;  /* Add this to remove any default margins */
     padding: 0; /* Add this to remove any default padding */
     line-height: 1.2; /* Add this to control vertical spacing */
@@ -333,7 +333,7 @@ body, html {
 }
 
 .pnames {
-    font-size: 24px;
+    font-size: clamp(18px, 4vw, 24px);
     line-height: 1.4;
 }
 
@@ -764,4 +764,103 @@ form {
 
 .decline-button:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Add responsive padding/margins */
+.swiper-slide {
+    padding-top: clamp(20px, 5vh, 50px);
+}
+
+/* Add media queries for different screen sizes */
+@media screen and (max-height: 700px) {
+    .parent {
+        max-height: 100vh;
+    }
+
+    .ceremony {
+        gap: 0.5rem;
+    }
+
+    .ceremonydetails {
+        margin: 15px 0;
+    }
+
+    .Bverse, .Bverse2 {
+        padding-top: 1rem;
+    }
+
+    .rsvp-form {
+        margin: 1rem 0;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .parent {
+        width: 100%;
+        max-width: none;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .rsvp-button, .decline-button {
+        width: 100%;
+    }
+
+    .contact-info {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 320px) {
+    .verse, .verse2 {
+        font-size: 16px;
+    }
+
+    .date {
+        font-size: 28px;
+    }
+
+    .ceremony {
+        padding: 0 10px;
+    }
+}
+
+/* For tablets and larger phones */
+@media screen and (min-width: 376px) and (max-width: 768px) {
+    .parent {
+        max-width: 500px;
+    }
+
+    .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+/* For landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .parent {
+        height: 100vh;
+        max-height: none;
+    }
+
+    .swiper-slide {
+        padding-top: 10px;
+    }
+
+    .ceremony {
+        transform: scale(0.9);
+    }
+
+    .names {
+        padding-top: 1rem;
+    }
 }
