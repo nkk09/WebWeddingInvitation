@@ -237,7 +237,34 @@ document.addEventListener("DOMContentLoaded", () => {
       swiper.slideNext(600);
     });
   }
+
+  // Add RSVP deadline check
+  if (isRsvpDeadlinePassed()) {
+    const form = document.getElementById('rsvpForm');
+    const deadlineMessage = document.createElement('div');
+    deadlineMessage.className = 'deadline-message';
+    deadlineMessage.setAttribute('data-i18n-key', 'deadlinePassed');
+    deadlineMessage.textContent = 'RSVP deadline has passed';
+    
+    if (form) {
+      // Disable all form elements
+      const formElements = form.querySelectorAll('input, select, button');
+      formElements.forEach(element => {
+        element.disabled = true;
+      });
+      
+      // Replace form with message
+      form.style.opacity = '0.5';
+      form.parentNode.insertBefore(deadlineMessage, form.nextSibling);
+    }
+  }
 });
+
+function isRsvpDeadlinePassed() {
+  const deadline = new Date('2025-07-02');
+  const today = new Date();
+  return today > deadline;
+}
 
 function handleRSVP(event) {
   event.preventDefault();
