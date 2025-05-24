@@ -1,4 +1,5 @@
 window.translations_ar = {
+  tab: "أنطوان وساندي",
   title: "أنطوان<br>وساندي",
   loveStory: "قصة حبنا...",
   saveTheDate: "احفظ التاريخ",

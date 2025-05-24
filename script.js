@@ -294,18 +294,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setupLanguageSwitcher();
 
-  // Initialize Swiper with navigation
+  // Add click handler for love button
+  const loveButton = document.querySelector(".lovebutton");
+  if (loveButton) {
+    loveButton.addEventListener("click", () => {
+      // Start the audio
+      const audioElement = document.querySelector("#playAudio");
+      if (audioElement && isPlaying) {
+        audioElement.play().then(() => {
+          muteBtn.innerHTML = icons.volume;
+        }).catch(error => {
+          console.log("Playback prevented:", error);
+        });
+      }
+      
+      // Enable swiping to next slides
+      swiper.allowSlideNext = true;
+      swiper.allowSlidePrev = true;
+    });
+  }
+
+  // Initially disable swiping
   swiper = new Swiper(".mySwiper", {
     rtl: lang === "ar",
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    allowSlideNext: false,
+    allowSlidePrev: false
   });
-
-  // Auto-play audio when page loads
-  const audioElement = document.querySelector("#playAudio");
-  if (audioElement && isPlaying) {
-    audioElement.play();
-  }
 });

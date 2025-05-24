@@ -1,4 +1,5 @@
 window.translations_en = {
+  tab: "Antoine & Sandy",
   title: "Antoine<br/>&<br/>Sandy",
   loveStory: "Our love story...",
   saveTheDate: "Save The Date",
