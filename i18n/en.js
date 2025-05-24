@@ -24,7 +24,7 @@ window.translations_en = {
   letsParty: "Dinner Party",
   dinner: "Dinner",
   dinnerTime: "7:30 pm",
-  venueLocation: "Bourgeois Boheme Venue",
+  venueLocation: "Bourgeois Boheme Venue<br/>Zouq el Kharab",
   venueLocationLink: "Venue Location",
   giftRegistry: "Gift Registry",
   giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us. However, for those who wish, a wedding list is available in all WHISH MONEY branches",
