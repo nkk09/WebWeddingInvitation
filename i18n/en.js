@@ -1,5 +1,5 @@
 window.translations_en = {
-  title: "Antoine & Sandy",
+  title: "Antoine<br/>&<br/>Sandy",
   loveStory: "Our love story...",
   saveTheDate: "Save The Date",
   verseText: "To our loved ones,\nWith your prayers, \nMay we always say to each other: \"I'll be there for you\"",
@@ -27,7 +27,7 @@ window.translations_en = {
   venueLocationLink: "Venue Location",
   giftRegistry: "Gift Registry",
   giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us. However, for those who wish, a wedding list is available in all WHISH MONEY branches",
-  giftMessage2: "ID : 20672804-03 \nPhone number : 71 486 921",
+  giftMessage2: "ID : 20672804-03<br/>Phone number : 71 486 921",
   beOurGuest: "Be our Guest",
   replyBefore: "Please reply before July 2nd 2025",
   numberOfPersons: "Number of persons:"

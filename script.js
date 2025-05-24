@@ -192,16 +192,6 @@ background.className = "background-image";
 document.querySelector(".falling-leaves").appendChild(background);
 changeBackgroundImage();
 
-function playAudio() {
-  const audioElement = document.querySelector("#playAudio");
-  if (audioElement) {
-    if (isPlaying) {
-      audioElement.play();
-    }
-    swiper.slideNext();
-  }
-}
-
 const muteBtn = document.getElementById("mute-button");
 const audio = document.getElementById("playAudio");
 let isPlaying = true;
@@ -266,7 +256,7 @@ function applyTranslations(translations) {
   elements.forEach((el) => {
     const key = el.getAttribute("data-i18n-key");
     if (translations && translations[key]) {
-      el.textContent = translations[key];
+      el.innerHTML = translations[key]; // Changed from textContent to innerHTML
     }
   });
 }
@@ -300,25 +290,22 @@ document.addEventListener("DOMContentLoaded", () => {
   loadLanguage(lang);
   const switcher = document.getElementById("language-switcher");
   if (switcher) {
-    switcher.value = lang; // Set the select element's value to the current language
+    switcher.value = lang;
   }
   setupLanguageSwitcher();
 
-  swiper.destroy(true, true);
+  // Initialize Swiper with navigation
   swiper = new Swiper(".mySwiper", {
     rtl: lang === "ar",
-    // loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
 
-  // if (lang === 'ar') {
-  //     swiper.on('slideChange', () => {
-  //         if (swiper.isBeginning) {
-  //             swiper.allowSlidePrev = false;
-  //         } else {
-  //             swiper.allowSlidePrev = true;
-  //         }
-  //     });
-  //     // Initialize allowSlidePrev based on initial slide
-  //     swiper.allowSlidePrev = !swiper.isBeginning;
-  // }
+  // Auto-play audio when page loads
+  const audioElement = document.querySelector("#playAudio");
+  if (audioElement && isPlaying) {
+    audioElement.play();
+  }
 });
