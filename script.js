@@ -6,191 +6,89 @@ var images = [
   "url(./photos/image5.jpg)",
   "url(./photos/image6.jpg)",
   "url(./photos/image7.jpg)",
-  "url(./photos/image8.jpg)",
-  "url(./photos/image9.jpg)",
-  "url(./photos/image10.jpg)",
-  "url(./photos/image11.jpg)",
-  "url(./photos/image12.jpg)",
-  "url(./photos/image13.jpg)"
+  "url(./photos/image8.jpg)"
 ];
 
-// var LeafScene = function (el) {
-//   this.viewport = el;
-//   this.world = document.createElement("div");
-//   this.leaves = [];
-//   this.background = document.createElement("div");
-
-//   this.background.className = "background-image";
-//   this.viewport.appendChild(this.background);
-
-//   this.options = {
-//     numLeaves: 20,
-//     wind: {
-//       magnitude: 1.2,
-//       maxSpeed: 12,
-//       duration: 300,
-//       start: 0,
-//       speed: 0,
-//     },
-//   };
-
-//   this.width = this.viewport.offsetWidth;
-//   this.height = this.viewport.offsetHeight;
-
-//   // animation helper
-//   this.timer = 0;
-
-//   this._resetLeaf = function (leaf) {
-//     leaf.x = this.width * 2 - Math.random() * this.width * 1.75;
-//     leaf.y = -10;
-//     leaf.z = Math.random() * 200;
-//     if (leaf.x > this.width) {
-//       leaf.x = this.width + 10;
-//       leaf.y = (Math.random() * this.height) / 2;
-//     }
-//     if (this.timer == 0) {
-//       leaf.y = Math.random() * this.height;
-//     }
-//     leaf.rotation.speed = Math.random() * 10;
-//     var randomAxis = Math.random();
-//     if (randomAxis > 0.5) {
-//       leaf.rotation.axis = "X";
-//     } else if (randomAxis > 0.25) {
-//       leaf.rotation.axis = "Y";
-//       leaf.rotation.x = Math.random() * 180 + 90;
-//     } else {
-//       leaf.rotation.axis = "Z";
-//       leaf.rotation.x = Math.random() * 360 - 180;
-//       leaf.rotation.speed = Math.random() * 3;
-//     }
-//     leaf.xSpeedVariation = Math.random() * 0.8 - 0.4;
-//     leaf.ySpeed = Math.random() + 1.5;
-//     return leaf;
-//   };
-
-//   this._updateLeaf = function (leaf) {
-//     var leafWindSpeed = this.options.wind.speed(
-//       this.timer - this.options.wind.start,
-//       leaf.y
-//     );
-//     var xSpeed = leafWindSpeed + leaf.xSpeedVariation;
-//     leaf.x -= xSpeed;
-//     leaf.y += leaf.ySpeed;
-//     leaf.rotation.value += leaf.rotation.speed;
-//     var t =
-//       "translateX(" +
-//       leaf.x +
-//       "px) translateY(" +
-//       leaf.y +
-//       "px) translateZ(" +
-//       leaf.z +
-//       "px) rotate" +
-//       leaf.rotation.axis +
-//       "(" +
-//       leaf.rotation.value +
-//       "deg)";
-//     if (leaf.rotation.axis !== "X") {
-//       t += " rotateX(" + leaf.rotation.x + "deg)";
-//     }
-//     leaf.el.style.webkitTransform = t;
-//     leaf.el.style.MozTransform = t;
-//     leaf.el.style.oTransform = t;
-//     leaf.el.style.transform = t;
-//     if (leaf.x < -10 || leaf.y > this.height + 10) {
-//       this._resetLeaf(leaf);
-//     }
-//   };
-
-//   this._updateWind = function () {
-//     if (
-//       this.timer === 0 ||
-//       this.timer > this.options.wind.start + this.options.wind.duration
-//     ) {
-//       this.options.wind.magnitude = Math.random() * this.options.wind.maxSpeed;
-//       this.options.wind.duration =
-//         this.options.wind.magnitude * 50 + (Math.random() * 20 - 10);
-//       this.options.wind.start = this.timer;
-//       var screenHeight = this.height;
-//       this.options.wind.speed = function (t, y) {
-//         var a =
-//           ((this.magnitude / 2) * (screenHeight - (2 * y) / 3)) / screenHeight;
-//         return (
-//           a *
-//             Math.sin(((2 * Math.PI) / this.duration) * t + (3 * Math.PI) / 2) +
-//           a
-//         );
-//       };
-//     }
-//   };
-// };
-
-// LeafScene.prototype.init = function () {
-//   for (var i = 0; i < this.options.numLeaves; i++) {
-//     var leaf = {
-//       el: document.createElement("div"),
-//       x: 0,
-//       y: 0,
-//       z: 0,
-//       rotation: {
-//         axis: "X",
-//         value: 0,
-//         speed: 0,
-//         x: 0,
-//       },
-//       xSpeedVariation: 0,
-//       ySpeed: 0,
-//       path: {
-//         type: 1,
-//         start: 0,
-//       },
-//       image: 1,
-//     };
-//     this._resetLeaf(leaf);
-//     this.leaves.push(leaf);
-//     this.world.appendChild(leaf.el);
-//   }
-//   this.world.className = "leaf-scene";
-//   this.viewport.appendChild(this.world);
-//   this.world.style.webkitPerspective = "400px";
-//   this.world.style.MozPerspective = "400px";
-//   this.world.style.oPerspective = "400px";
-//   this.world.style.perspective = "400px";
-//   var self = this;
-//   window.onresize = function (event) {
-//     self.width = self.viewport.offsetWidth;
-//     self.height = self.viewport.offsetHeight;
-//   };
-// };
-
-// LeafScene.prototype.render = function () {
-//   this._updateWind();
-//   for (var i = 0; i < this.leaves.length; i++) {
-//     this._updateLeaf(this.leaves[i]);
-//   }
-//   this.timer++;
-//   requestAnimationFrame(this.render.bind(this));
-// };
+function preloadImages(imageUrls) {
+  return Promise.all(imageUrls.map(imageUrl => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      // Remove url() wrapper from the path
+      img.src = imageUrl.replace(/^url\(['"]?(.+?)['"]?\)$/, '$1');
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+  }));
+}
 
 function changeBackgroundImage() {
-  var index = 0;
-  setInterval(function () {
-    document.querySelector(".background-image").style.backgroundImage =
-      images[index];
+  const container = document.querySelector(".falling-leaves");
+  const bg1 = document.createElement("div");
+  const bg2 = document.createElement("div");
+
+  bg1.className = "background-image active";
+  bg2.className = "background-image";
+
+  container.appendChild(bg1);
+  container.appendChild(bg2);
+
+  const layers = [bg1, bg2];
+  let current = 0;
+  let index = 1;
+
+  bg1.style.backgroundImage = images[0];
+  bg2.style.backgroundImage = images[1];
+
+  setInterval(() => {
+    // Update index of next image
     index = (index + 1) % images.length;
-  }, 3000);
+
+    // Get references to current and next layer
+    const currentLayer = layers[current];
+    const nextLayer = layers[1 - current];
+
+    // Set the new image on the next layer
+    nextLayer.style.backgroundImage = images[index];
+
+    // Fade in next layer and fade out current
+    nextLayer.classList.add("active");
+    currentLayer.classList.remove("active");
+
+    // Swap current layer index
+    current = 1 - current;
+  }, 6500);
 }
+
+
+
+// Set initial background immediately
+document.addEventListener('DOMContentLoaded', async () => {
+  // Preload images first
+  try {
+    await preloadImages(images);
+    console.log('All images preloaded successfully');
+  } catch (error) {
+    console.error('Error preloading images:', error);
+  }
+
+  // Start background image rotation after preloading
+  const firstBackground = document.querySelector(".background-image");
+  if (firstBackground) {
+    firstBackground.style.backgroundImage = images[0];
+  }
+  // Start the background rotation
+  changeBackgroundImage();
+});
 
 // var leafContainer = document.querySelector(".falling-leaves"),
 //   leaves = new LeafScene(leafContainer);
 
 // leaves.init();
 // leaves.render();
-// changeBackgroundImage();
 
 const background = document.createElement("div");
 background.className = "background-image";
 document.querySelector(".falling-leaves").appendChild(background);
-changeBackgroundImage();
 
 const muteBtn = document.getElementById("mute-button");
 const audio = document.getElementById("playAudio");
@@ -294,6 +192,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setupLanguageSwitcher();
 
+  // Initially disable swiping
+  swiper = new Swiper(".mySwiper", {
+    rtl: lang === "ar",
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    allowTouchMove: false, // Disable all touch/mouse events
+    allowSlideNext: false,
+    allowSlidePrev: false,
+    noSwiping: true,
+    noSwipingClass: 'swiper-no-swiping',
+    shortSwipes: false,
+    longSwipes: false,
+    resistance: false
+  });
+
   // Add click handler for love button
   const loveButton = document.querySelector(".lovebutton");
   if (loveButton) {
@@ -308,20 +223,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       
-      // Enable swiping to next slides
+      // Enable swiping
+      swiper.allowTouchMove = true;  // Enable touch/mouse events
       swiper.allowSlideNext = true;
       swiper.allowSlidePrev = true;
+      swiper.params.shortSwipes = true;
+      swiper.params.longSwipes = true;
+      swiper.params.resistance = true;
+      swiper.params.noSwiping = false;
+      swiper.update();
+
+      // Auto swipe to next slide
+      swiper.slideNext(600);
     });
   }
-
-  // Initially disable swiping
-  swiper = new Swiper(".mySwiper", {
-    rtl: lang === "ar",
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    allowSlideNext: false,
-    allowSlidePrev: false
-  });
 });
