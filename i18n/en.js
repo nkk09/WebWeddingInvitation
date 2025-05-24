@@ -9,10 +9,9 @@ window.translations_en = {
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
-  verse: "\"SO THEY ARE NO LONGER TWO, BUT ONE. THEREFORE WHAT GOD HAS JOINED TOGETHER, LET MAN NOT SEPARATE.\"",
+  verse: "\"So they are no longer two, but one. Therefore what God has joined together, let man not separate.\"",
   author: "Matthew 19:6",
-  togetherWithParents: "Together With Their Parents",
-  togther: "With love and gratitude to our families",
+  together: "With our beloved families",
   parentsOfGroom: "Parents of the Groom",
   parentsOfBride: "Parents of the Bride",
   pnamesGroom: "Father Semaan-Nemer & Violette",
@@ -35,7 +34,7 @@ window.translations_en = {
 
   giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.<br/>However, for those who wish, a wedding list is available in all WHISH MONEY branches.",
   giftMessage2: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
-  beOurGuest: "Be our Guest",
+  beOurGuest: "Graciously invited",
   replyBefore: "Please reply before July 2<sup>nd</sup> 2025",
-  numberOfPersons: "Number of persons:"
+  numberOfPersons: "Number of people:"
 };

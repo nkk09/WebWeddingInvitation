@@ -97,7 +97,7 @@
           </div>
           <div class="swiper-slide">
             <div class="wedding">
-              <div class="date" data-i18n-key="saveTheDate">Save The Date</div>
+              <div class="date" data-i18n-key="saveTheDate" style="font-style: italic; font-weight: bold">Save The Date</div>
               <div class="Bverse">
                 <div class="verse" data-i18n-key="verseText">
                   To our loved ones,<br />
@@ -135,8 +135,8 @@
                 <div class="author" data-i18n-key="author">Matthew 19:6</div>
               </div>
               
-<div class="tgthr lora24" style="margin-top: 2rem;" data-i18n-key="together">
-  With love and gratitude to our families
+<div class="tgthr" style="margin-top: 2rem; font-weight: bold" data-i18n-key="together">
+  With our beloved families
 </div>
 <div class="names">
   <div class="family" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)">
@@ -169,7 +169,7 @@
           </div>
           <div class="swiper-slide">
             <div class="wedding-details">
-              <div class="date" data-i18n-key="weddingCeremony">Wedding Ceremony</div>
+              <div class="date" data-i18n-key="weddingCeremony" style="font-weight: bold; font-style: italic">Wedding Ceremony</div>
               <div class="ceremony">
                 <div class="ceremonydetails">
                   <div class="wedding-date" data-i18n-key="weddingDate">
@@ -191,7 +191,7 @@
                   </div>
                 </div>
 
-                <div class="date" data-i18n-key="dinnerParty">Dinner Reception</div>
+                <div class="date" data-i18n-key="dinnerParty" style="font-weight: bold; font-style: italic">Dinner Reception</div>
                 <div class="ceremonydetails">
                   <div class="time-container">
                     <i class="fa fa-clock-o" style="font-size: 24px; color: white"></i>
@@ -213,7 +213,7 @@
           </div>
           <div class="swiper-slide">
 <div class="wedding-gift">
-  <div class="date" data-i18n-key="giftRegistry">A thoughtful gesture</div>
+  <div class="date" data-i18n-key="giftRegistry" style="font-weight: bold; font-style: italic">A thoughtful gesture</div>
   <div class="gift">
     <i class="fa fa-gift" style="font-size: 28px; color: white; margin-bottom: 10px;"></i>
     <div class="registry-intro lora24" data-i18n-key="giftRegistryIntro">
@@ -233,35 +233,47 @@
           </div>
           <div class="swiper-slide">
             <div class="wedding">
-              <div class="date" data-i18n-key="beOurGuest">Be our Guest</div>
+              <div class="date" data-i18n-key="beOurGuest" style="font-weight: bold; font-style: italic">Graciously invited</div>
               <div class="inv">
                 <div data-i18n-key="replyBefore">
                   Please reply before July 2<sup>nd</sup> 2025
                 </div>
-                <div
-                  id="attnum"
-                  style="margin-top: 20px"
-                  data-i18n-key="numberOfPersons"
-                >
-                  Number of persons:
-                </div>
-                <div style="margin-top: 20px">
-                  Antoine:
-                  <a
-                    href="https://wa.me/96171486921"
-                    style="color: #fff"
-                    target="_blank"
-                    >71 486 921</a
-                  >
-                </div>
-                <div style="margin-top: 15px">
-                  Sandy:
-                  <a
-                    href="https://wa.me/96176596562"
-                    style="color: #fff"
-                    target="_blank"
-                    >76 596 562</a
-                  >
+                
+                <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
+                  <div class="form-group">
+                    <input type="text" id="guestName" name="guestName" required 
+                           placeholder="Your name(s)" data-i18n-key="namePlaceholder">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="guestCount" data-i18n-key="numberOfPersons">Number of people:</label>
+                    <select id="guestCount" name="guestCount" required>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+
+                  <div class="button-group">
+                    <button type="submit" class="rsvp-button" data-i18n-key="submitRSVP" onclick="handleRSVP(event)">
+                      Confirm
+                    </button>
+                    <button type="button" class="decline-button" onclick="handleDecline()" data-i18n-key="declineRSVP">
+                      Decline
+                    </button>
+                  </div>
+                </form>
+
+                <div class="contact-info">
+                  <a href="https://wa.me/96171486921" class="contact-button" target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                    <span class="contact-name">Antoine</span>
+                  </a>
+                  <a href="https://wa.me/96176596562" class="contact-button" target="_blank">
+                    <i class="fa fa-whatsapp"></i>
+                    <span class="contact-name">Sandy</span>
+                  </a>
                 </div>
               </div>
             </div>

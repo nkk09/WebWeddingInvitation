@@ -238,3 +238,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+function handleRSVP(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('guestName').value;
+  const count = document.getElementById('guestCount').value;
+  
+  // You can customize this message format
+  const message = `Hello Antoine & Sandy! 
+I ${name} would like to confirm my attendance with ${count} person(s).`;
+  
+  // Open WhatsApp with pre-filled message
+  window.open(`https://wa.me/96181987807?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function handleDecline() {
+  const name = document.getElementById('guestName').value;
+  const message = `Hello Antoine & Sandy! 
+Unfortunately, I ${name} will not be able to attend your wedding celebration. Thank you for thinking of me.`;
+
+  window.open(`https://wa.me/96181987807?text=${encodeURIComponent(message)}`, '_blank');
+}

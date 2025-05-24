@@ -11,7 +11,7 @@ window.translations_fr = {
   langArabic: "العربية",
   verse: "\"Ainsi, ils ne sont plus deux mais ne font qu\'un. Que l'homme ne sépare donc pas ce que Dieu a uni.\"",
   author: "Matthieu 19:6",
-  together: "Avec amour et gratitude à nos familles",
+  together: "Avec nos chères familles",
   parentsOfGroom: "Parents de l'époux",
   pnamesGroom: "Père Semaan-Nemer & Violette",
   lastnameGroom: "Boulos",

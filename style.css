@@ -193,6 +193,7 @@ body, html {
     gap: 8px;
     font-weight: 400;
     font-size: 18px;
+    font-style: italic;
 }
 
 .lovebutton:hover {
@@ -281,8 +282,7 @@ body, html {
   }
   .verse {
     color: white;
-    font-family: 'Lora';
-    font-size: 24px;
+    font-size: 22px;
     text-wrap: pretty;
   }
   .author {
@@ -325,8 +325,9 @@ body, html {
 }
 
 .tgthr {
-    font-size: 20px;
-    font-style: normal;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
     margin-bottom: 1rem;
     padding: 0 15px 15px 15px;
 }
@@ -628,7 +629,7 @@ form {
 
 .save-date-footer {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     position: relative;
     width: 100%;
     text-align: center;
@@ -664,4 +665,103 @@ form {
     font-weight: normal;
     margin-bottom: 20px;
     font-style: italic;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rsvp-form input,
+.rsvp-form select {
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+}
+
+.rsvp-button {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  font-family: 'Lora', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.rsvp-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-button .fa-whatsapp {
+  font-size: 20px;
+  color: #25D366;
+}
+
+.contact-name {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.decline-button {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  font-family: 'Lora', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.decline-button:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
