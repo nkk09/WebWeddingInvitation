@@ -241,19 +241,19 @@ body, html {
   padding: 2rem 1.5rem;
   backdrop-filter: blur(6px);
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  width: 85%;
+  width: 80%;
   max-width: 320px;
   text-align: center;
   margin-top: 0;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
 .giftdetails {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   opacity: 0.95;
 }
