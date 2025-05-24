@@ -250,13 +250,13 @@ function handleRSVP(event) {
 I ${name} would like to confirm my attendance with ${count} person(s).`;
   
   // Open WhatsApp with pre-filled message
-  window.open(`https://wa.me/96181987807?text=${encodeURIComponent(message)}`, '_blank');
+  window.open(`https://wa.me/96171486921?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 function handleDecline() {
   const name = document.getElementById('guestName').value;
   const message = `Hello Antoine & Sandy! 
 Unfortunately, I ${name} will not be able to attend your wedding celebration. Thank you for thinking of me.`;
-
-  window.open(`https://wa.me/96181987807?text=${encodeURIComponent(message)}`, '_blank');
+  
+  window.open(`https://wa.me/96171486921?text=${encodeURIComponent(message)}`, '_blank');
 }
