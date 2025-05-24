@@ -27,7 +27,7 @@ window.translations_fr = {
   dinnerTime: "19h30",
   venueLocation: "Bourgeois Boheme<br/>Zouq el Kharab",
   giftRegistry: "Registre de mariage",
-  giftMessage1: "Votre présence est le plus beau cadeau, et votre amour et votre soutien comptent beaucoup pour nous. Cependant, pour ceux qui le souhaitent, un registre de mariage est disponible dans toutes les agences WHISH MONEY",
+  giftMessage1: "Votre présence est le plus beau cadeau, et votre amour et votre soutien comptent beaucoup pour nous.<br/>Cependant, pour ceux qui le souhaitent, un registre de mariage est disponible dans toutes les agences WHISH MONEY.",
   giftMessage2: "ID : 20672804-03 <br/>Numéro de téléphone : 71 486 921",
   beOurGuest: "Soyez nos invités",
   replyBefore: "Veuillez répondre avant le 2 juillet 2025",

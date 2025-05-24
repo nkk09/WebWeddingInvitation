@@ -33,7 +33,7 @@ window.translations_en = {
   giftRegistry: "A thoughtful gesture",
   giftRegistryIntro: "If you wish to bless us with a gift",
 
-  giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.<br/>However, for those who wish, a wedding list is available in all WHISH MONEY branches",
+  giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.<br/>However, for those who wish, a wedding list is available in all WHISH MONEY branches.",
   giftMessage2: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
   beOurGuest: "Be our Guest",
   replyBefore: "Please reply before July 2<sup>nd</sup> 2025",
