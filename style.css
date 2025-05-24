@@ -333,10 +333,12 @@ body, html {
 .lora20 {
     color: white;
     font-size: 20px;
+    font-weight: normal; /* Use normal weight for this size */
 }
 .lora18 {
     color: white;
     font-size: 18px;
+    font-weight: normal; /* Use normal weight for this size */
 }
 .nodec {
     margin-top: 10px;
