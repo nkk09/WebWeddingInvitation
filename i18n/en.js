@@ -9,7 +9,7 @@ window.translations_en = {
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
-  verse: "SO THEY ARE NO LONGER TWO, BUT ONE. THEREFORE WHAT GOD HAS JOINED TOGETHER, LET MAN NOT SEPARATE.",
+  verse: "\"SO THEY ARE NO LONGER TWO, BUT ONE. THEREFORE WHAT GOD HAS JOINED TOGETHER, LET MAN NOT SEPARATE.\"",
   author: "Matthew 19:6",
   togetherWithParents: "Together With Their Parents",
   fatherNames: "Père Semaan-Nemer & Violette",

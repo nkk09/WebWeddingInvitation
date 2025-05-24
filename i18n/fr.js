@@ -9,7 +9,7 @@ window.translations_fr = {
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
-  verse: "Ainsi, ils ne sont plus deux mais ne font qu\'un. Que l'homme ne sépare donc pas ce que Dieu a uni.",
+  verse: "\"Ainsi, ils ne sont plus deux mais ne font qu\'un. Que l'homme ne sépare donc pas ce que Dieu a uni.\"",
   author: "Matthieu 19:6",
   togetherWithParents: "Ensemble avec leurs parents",
   fatherNames: "Père Semaan-Nemer & Violette",
