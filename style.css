@@ -214,6 +214,50 @@ body, html {
     justify-content: flex-start;  /* Change from space-between to flex-start */
     gap: 2rem;  /* Add gap between elements */
 }
+
+  .wedding-gift {
+    height: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  /* Change from space-between to flex-start */
+    gap: 2rem;  /* Add gap between elements */
+}
+
+.registry-intro {
+  text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: white;
+  opacity: 0.9;
+}
+
+.gift {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
+  margin-top: 0;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.giftdetails {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
   .wedding-details {
     height: 100%;
     padding-top: 50px;
@@ -401,27 +445,6 @@ body, html {
 /* Keep existing reduced margin after titles */
 .date + .ceremonydetails {
     margin-top: 15px;
-}
-
-.gift {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  padding-top: 10%;
-  gap: 2rem;
-  color: white;
-  font-size: 20px;
-}
-
-.giftdetails {
-  text-wrap: pretty;
-  text-align: center;
 }
 
 input {
