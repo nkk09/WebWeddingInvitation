@@ -197,26 +197,19 @@
 
     <div class="inv">
       <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
-        <div class="form-group">
-          <input type="text" id="guestName" name="guestName" required 
-                 placeholder="Your name(s)" data-i18n-key="namePlaceholder">
-        </div>
-
-<div class="inline-guest-count">
-  <label for="guestCount" data-i18n-key="numberOfPersons">Number of guests invited:</label>
-  <span id="guestCount" class="guest-count-display">1</span>
-</div>
-
-
-        <div class="button-group">
-          <button type="submit" class="rsvp-button" data-i18n-key="submitRSVP" onclick="handleRSVP(event)">
-            Confirm
-          </button>
-          <button type="button" class="decline-button" onclick="handleDecline()" data-i18n-key="declineRSVP">
-            Decline
-          </button>
-        </div>
-      </form>
+  <div class="inline-guest-count">
+    <label for="guestCount" data-i18n-key="numberOfPersons">Number of guests invited:</label>
+    <span id="guestCount" class="guest-count-display">1</span>
+  </div>
+  <div class="button-group">
+    <button type="submit" class="rsvp-button" data-i18n-key="submitRSVP">
+      Confirm
+    </button>
+    <button type="button" class="decline-button" onclick="handleDecline()" data-i18n-key="declineRSVP">
+      Decline
+    </button>
+  </div>
+</form>
 
       <div class="more-info-text" data-i18n-key="moreInfo">For more info:</div>
 
