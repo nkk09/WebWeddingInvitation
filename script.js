@@ -177,25 +177,28 @@ function initializeSwiper(lang, unlocked) {
   return new Swiper(".mySwiper", {
     rtl: lang === "ar",
     initialSlide: 0,
-    allowTouchMove: false, // Always start with touch moves disabled
-    allowSlideNext: false, // Always start with next slide disabled
-    allowSlidePrev: false, // Always start with prev slide disabled
-    noSwiping: true,      // Always start with swiping disabled
+    allowTouchMove: false,
+    allowSlideNext: false,
+    allowSlidePrev: false,
+    noSwiping: true,
     noSwipingClass: 'swiper-no-swiping',
     touchRatio: 1,
-    resistanceRatio: 0, // Prevent overscrolling
+    resistanceRatio: 0,
     watchOverflow: true,
     on: {
       init: function() {
-        if (!unlocked) {
-          this.allowTouchMove = false;
-          this.allowSlideNext = false;
-          this.allowSlidePrev = false;
+        if (unlocked) {
+          this.allowTouchMove = true;
+          this.allowSlideNext = true;
+          this.allowSlidePrev = true;
         }
       },
       slideChange: function () {
-        if (this.activeIndex === 0 && unlocked) {
-          this.slideTo(1); // Force back to slide 1 if somehow we get to slide 0
+        // Disable prev swipe on first content slide (index 1)
+        if (this.activeIndex === 1) {
+          this.allowSlidePrev = false;
+        } else {
+          this.allowSlidePrev = true;
         }
       }
     }
@@ -219,14 +222,13 @@ function switchLanguage(lang) {
     if (isLoveButtonClicked) {
       swiper.allowTouchMove = true;
       swiper.noSwiping = false;
-      if (lang === "ar") {
-        swiper.allowSlideNext = false;
-        swiper.allowSlidePrev = true;
+      swiper.allowSlideNext = true;   // Allow next for both languages
+      swiper.allowSlidePrev = true;   // Allow prev for both languages
+      if (currentIndex === 0) {
+        swiper.slideTo(1, 0);         // Ensure we're not on cover page
       } else {
-        swiper.allowSlideNext = true;
-        swiper.allowSlidePrev = false;
+        swiper.slideTo(currentIndex, 0);
       }
-      swiper.slideTo(currentIndex, 0);
     }
   }
 }
@@ -281,18 +283,11 @@ document.getElementById("guestCount").textContent = count;
                 });
             }
 
-            // Enable correct swipe direction based on language
-            const lang = getLanguageFromURL();
+            // Enable bidirectional swiping
             swiper.allowTouchMove = true;
             swiper.noSwiping = false;
-            
-            if (lang === "ar") {
-                swiper.allowSlideNext = false;  // Prevent right swipe in Arabic
-                swiper.allowSlidePrev = true;   // Allow left swipe in Arabic
-            } else {
-                swiper.allowSlideNext = true;   // Allow right swipe in English
-                swiper.allowSlidePrev = false;  // Prevent left swipe in English
-            }
+            swiper.allowSlideNext = true;
+            swiper.allowSlidePrev = true;
             
             // Move to next slide
             swiper.slideTo(1, 600);
