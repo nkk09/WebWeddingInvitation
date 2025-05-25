@@ -189,18 +189,54 @@ function initializeSwiper(lang, unlocked) {
       el: '.swiper-pagination',
       clickable: true,
       renderBullet: function (index, className) {
-        return '<span class="' + className + '"></span>';
+        // Skip the first bullet (cover page)
+        if (index === 0) {
+          return '';
+        }
+        return `<span class="${className}" data-index="${index - 1}"></span>`;
       },
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active',
+      formatFractionCurrent: function(number) {
+        return number - 1;
+      },
+      // Add this property to adjust the active bullet index
+      paginationBulletRender: function(swiper, index, className) {
+        if (index === 0) return '';
+        return '<span class="' + className + '" data-index="' + (index - 1) + '"></span>';
+      }
     },
     on: {
       init: function() {
+        // Hide pagination on cover page
+        const paginationEl = document.querySelector('.swiper-pagination');
+        paginationEl.classList.remove('show');
+        
         if (unlocked) {
           this.allowTouchMove = true;
           this.allowSlideNext = true;
           this.allowSlidePrev = true;
+          paginationEl.classList.add('show');
         }
       },
       slideChange: function () {
+        // Show/hide pagination based on current slide
+        const paginationEl = document.querySelector('.swiper-pagination');
+        if (this.activeIndex === 0) {
+          paginationEl.classList.remove('show');
+        } else {
+          // Adjust active bullet based on current slide
+          const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+          bullets.forEach((bullet, index) => {
+            if (index === this.activeIndex - 1) {
+              bullet.classList.add('swiper-pagination-bullet-active');
+            } else {
+              bullet.classList.remove('swiper-pagination-bullet-active');
+            }
+          });
+          paginationEl.classList.add('show');
+        }
+
         // Disable prev swipe on first content slide (index 1)
         if (this.activeIndex === 1) {
           this.allowSlidePrev = false;
@@ -290,11 +326,15 @@ document.getElementById("guestCount").textContent = count;
                 });
             }
 
-            // Enable bidirectional swiping
+            // Enable swiping and show pagination
             swiper.allowTouchMove = true;
             swiper.noSwiping = false;
             swiper.allowSlideNext = true;
             swiper.allowSlidePrev = true;
+            
+            // Show pagination
+            const paginationEl = document.querySelector('.swiper-pagination');
+            paginationEl.classList.add('show');
             
             // Move to next slide
             swiper.slideTo(1, 600);
