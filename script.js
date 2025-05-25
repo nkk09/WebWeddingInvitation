@@ -257,6 +257,7 @@ function switchLanguage(lang) {
   const langInfo = supportedLanguages[lang];
   if (langInfo) {
     loadLanguage(lang);
+    updateLanguageButtonStates(lang);
     
     const currentIndex = swiper.activeIndex;
     swiper.destroy(true, true);
@@ -411,4 +412,17 @@ function startCountdown() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
   }
+}
+
+function updateLanguageButtonStates(selectedLang) {
+    const enButton = document.getElementById('en-button');
+    const arButton = document.getElementById('ar-button');
+    
+    if (selectedLang === 'ar') {
+        arButton.classList.add('active');
+        enButton.classList.remove('active');
+    } else {
+        enButton.classList.add('active');
+        arButton.classList.remove('active');
+    }
 }
