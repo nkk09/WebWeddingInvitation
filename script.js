@@ -178,11 +178,15 @@ function switchLanguage(lang) {
   window.location.href = url.toString();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Keep existing initialization code
   const lang = getLanguageFromURL();
   loadLanguage(lang);
   
-  // Add guest count handling
+  // Add countdown initialization
+  startCountdown();
+  
+  // Rest of your existing code...
   const params = new URLSearchParams(window.location.search);
   const count = params.get("guests");
 
@@ -292,4 +296,32 @@ function handleDecline() {
 Unfortunately, I will not be able to attend your wedding celebration. Thank you for thinking of me.`;
   
   window.open(`https://wa.me/96171486921?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// Add the countdown function at the end of the file
+function startCountdown() {
+  const weddingDate = new Date("2025-08-02T00:00:00");
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "It's the big day!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  if (countdownEl) {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
 }

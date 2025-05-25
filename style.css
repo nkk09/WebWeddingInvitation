@@ -1066,3 +1066,65 @@ form {
   font-weight: bold;
   font-size: 18px;
 }
+
+.countdown-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  color: white;
+}
+
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 90%;
+}
+
+.countdown-timer {
+  font-size: clamp(24px, 6vw, 40px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+}
+
+.countdown-caption {
+  font-size: clamp(16px, 4vw, 22px);
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.framed-photo img {
+  width: auto;
+  max-width: 90%;
+  max-height: 35vh;
+  padding: 6px;
+  background: linear-gradient(135deg, #dcdcdc, #f8f8f8, #bfbfbf);
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  object-fit: cover;
+}
