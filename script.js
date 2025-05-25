@@ -185,6 +185,13 @@ function initializeSwiper(lang, unlocked) {
     touchRatio: 1,
     resistanceRatio: 0,
     watchOverflow: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
+      },
+    },
     on: {
       init: function() {
         if (unlocked) {
