@@ -1,11 +1,11 @@
 window.translations_en = {
   //general
-  tab: "Tony & Sandy",
+  tab: "Tony &amp; Sandy",
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
   //cover page
-  title: "Tony<br/>&<br/>Sandy",
+  title: "Tony<br/>&amp;<br/>Sandy",
   loveStory: "Our love story...",
   //quote page
   verseText: "To our loved ones,<br/>With your prayers, <br/>May we always say to each other:<br/>\"I'll be there for you\"",
