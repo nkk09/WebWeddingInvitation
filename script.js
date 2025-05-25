@@ -172,26 +172,27 @@ function getPreferredLanguage() {
   return "en";
 }
 
-function setupLanguageSwitcher() {
-  const switcher = document.getElementById("language-switcher");
-  if (!switcher) return;
-  switcher.addEventListener("change", (e) => {
-    const selectedLang = e.target.value;
-    const url = new URL(window.location.href);
-    url.searchParams.set("lang", selectedLang);
-    window.location.href = url.toString();
-  });
+function switchLanguage(lang) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", lang);
+  window.location.href = url.toString();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const lang = getLanguageFromURL();
   loadLanguage(lang);
-  const switcher = document.getElementById("language-switcher");
-  if (switcher) {
-    switcher.value = lang;
+  
+  // Update active button state
+  const enButton = document.getElementById('en-button');
+  const arButton = document.getElementById('ar-button');
+  if (lang === 'ar') {
+    arButton.classList.add('active');
+    enButton.classList.remove('active');
+  } else {
+    enButton.classList.add('active');
+    arButton.classList.remove('active');
   }
-  setupLanguageSwitcher();
-
+  
   // Initially disable swiping
   swiper = new Swiper(".mySwiper", {
     rtl: lang === "ar",
