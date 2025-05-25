@@ -171,7 +171,7 @@ body, html {
     }
 
   .title {
-    font-family: LovelyHome;
+    font-family: var(--main-font);
     color: white;
     font-size: clamp(40px, 10vw, 70px); /* Min: 40px, Preferred: 10vw, Max: 70px */
   }
@@ -304,7 +304,7 @@ body, html {
 }
 
   .groom, .bride {
-    font-family: lovelyHome;
+    font-family: var(--main-font);
     color: white;
     font-size: clamp(30px, 8vw, 40px);
     margin: 0;  /* Add this to remove any default margins */
@@ -976,7 +976,7 @@ form {
 
 .fancy-family {
   display: block;
-  font-family: 'Great Vibes', cursive;
+    font-family: var(--main-font);
   font-size: clamp(26px, 5vw, 34px);
   margin-top: 0.3rem;
 }
@@ -991,8 +991,8 @@ form {
 }
 
 .fancy-names {
-  font-family: 'LovelyHome', 'Great Vibes', cursive;
-  font-size: clamp(32px, 6vw, 48px);
+    font-family: var(--main-font);
+    font-size: clamp(32px, 6vw, 48px);
 }
 
 .wedding-date {
@@ -1221,4 +1221,18 @@ form {
         gap: 1rem;
         margin-top: -1rem;
     }
+}
+
+
+:root {
+    --main-font: 'LovelyHome';
+}
+
+/* Add language-specific font settings */
+[dir="rtl"] {
+    --main-font: 'arabic';
+}
+
+[dir="ltr"] {
+    --main-font: 'LovelyHome';
 }
