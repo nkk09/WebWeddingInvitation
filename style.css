@@ -852,6 +852,7 @@ form {
   z-index: 9999;
   direction: ltr !important;
   pointer-events: none;
+  margin-bottom: 30px;
 }
 
 .lang-btn {
@@ -1114,7 +1115,7 @@ form {
     align-items: center;     /* Center vertically */
     transform: none;         /* Remove transform */
     z-index: 1000;
-    margin-bottom: 2rem;
+    margin-bottom: 60px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
