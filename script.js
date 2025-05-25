@@ -93,6 +93,7 @@ document.querySelector(".falling-leaves").appendChild(background);
 const muteBtn = document.getElementById("mute-button");
 const audio = document.getElementById("playAudio");
 let isPlaying = true;
+let isLoveButtonClicked = false; // Add at the top of the file with other global variables
 
 const icons = {
   volume: `
@@ -172,107 +173,153 @@ function getPreferredLanguage() {
   return "en";
 }
 
+function initializeSwiper(lang, unlocked) {
+  return new Swiper(".mySwiper", {
+    rtl: lang === "ar",
+    initialSlide: 0,
+    allowTouchMove: false, // Always start with touch moves disabled
+    allowSlideNext: false, // Always start with next slide disabled
+    allowSlidePrev: false, // Always start with prev slide disabled
+    noSwiping: true,      // Always start with swiping disabled
+    noSwipingClass: 'swiper-no-swiping',
+    touchRatio: 1,
+    resistanceRatio: 0, // Prevent overscrolling
+    watchOverflow: true,
+    on: {
+      init: function() {
+        if (!unlocked) {
+          this.allowTouchMove = false;
+          this.allowSlideNext = false;
+          this.allowSlidePrev = false;
+        }
+      },
+      slideChange: function () {
+        if (this.activeIndex === 0 && unlocked) {
+          this.slideTo(1); // Force back to slide 1 if somehow we get to slide 0
+        }
+      }
+    }
+  });
+}
+
+
 function switchLanguage(lang) {
   const url = new URL(window.location.href);
   url.searchParams.set("lang", lang);
-  window.location.href = url.toString();
-}
+  window.history.replaceState({}, '', url.toString());
 
-document.addEventListener("DOMContentLoaded", async () => {
-  // Keep existing initialization code
-  const lang = getLanguageFromURL();
-  loadLanguage(lang);
-  
-  // Add countdown initialization
-  startCountdown();
-  
-  // Rest of your existing code...
-  const params = new URLSearchParams(window.location.search);
-  const count = params.get("guests");
-
-  if (count && count >= 1 && count <= 5) {
-document.getElementById("guestCount").textContent = count;
-  } else {
-    document.getElementById("guestCount").textContent = "1"; // default fallback
-  }
-  
-  // Update active button state
-  const enButton = document.getElementById('en-button');
-  const arButton = document.getElementById('ar-button');
-  if (lang === 'ar') {
-    arButton.classList.add('active');
-    enButton.classList.remove('active');
-  } else {
-    enButton.classList.add('active');
-    arButton.classList.remove('active');
-  }
-  
-  // Initially disable swiping
-  swiper = new Swiper(".mySwiper", {
-    rtl: lang === "ar",
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    allowTouchMove: false, // Disable all touch/mouse events
-    allowSlideNext: false,
-    allowSlidePrev: false,
-    noSwiping: true,
-    noSwipingClass: 'swiper-no-swiping',
-    shortSwipes: false,
-    longSwipes: false,
-    resistance: false
-  });
-
-  // Add click handler for love button
-  const loveButton = document.querySelector(".lovebutton");
-  if (loveButton) {
-    loveButton.addEventListener("click", () => {
-      // Start the audio
-      const audioElement = document.querySelector("#playAudio");
-      if (audioElement && isPlaying) {
-        audioElement.play().then(() => {
-          muteBtn.innerHTML = icons.volume;
-        }).catch(error => {
-          console.log("Playback prevented:", error);
-        });
-      }
-      
-      // Enable swiping
-      swiper.allowTouchMove = true;  // Enable touch/mouse events
-      swiper.allowSlideNext = true;
-      swiper.allowSlidePrev = true;
-      swiper.params.shortSwipes = true;
-      swiper.params.longSwipes = true;
-      swiper.params.resistance = true;
-      swiper.params.noSwiping = false;
-      swiper.update();
-
-      // Auto swipe to next slide
-      swiper.slideNext(600);
-    });
-  }
-
-  // Add RSVP deadline check
-  if (isRsvpDeadlinePassed()) {
-    const form = document.getElementById('rsvpForm');
-    const deadlineMessage = document.createElement('div');
-    deadlineMessage.className = 'deadline-message';
-    deadlineMessage.setAttribute('data-i18n-key', 'deadlinePassed');
-    deadlineMessage.textContent = 'RSVP deadline has passed';
+  const langInfo = supportedLanguages[lang];
+  if (langInfo) {
+    loadLanguage(lang);
     
-    if (form) {
-      // Disable all form elements
-      const formElements = form.querySelectorAll('input, select, button');
-      formElements.forEach(element => {
-        element.disabled = true;
-      });
-      
-      // Replace form with message
-      form.style.opacity = '0.5';
-      form.parentNode.insertBefore(deadlineMessage, form.nextSibling);
+    const currentIndex = swiper.activeIndex;
+    swiper.destroy(true, true);
+    swiper = initializeSwiper(lang, isLoveButtonClicked);
+    
+    if (isLoveButtonClicked) {
+      swiper.allowTouchMove = true;
+      swiper.noSwiping = false;
+      if (lang === "ar") {
+        swiper.allowSlideNext = false;
+        swiper.allowSlidePrev = true;
+      } else {
+        swiper.allowSlideNext = true;
+        swiper.allowSlidePrev = false;
+      }
+      swiper.slideTo(currentIndex, 0);
     }
   }
+}
+
+// Update the event listener in the DOMContentLoaded section
+document.addEventListener("DOMContentLoaded", async () => {
+    // Keep existing initialization code
+    const lang = getLanguageFromURL();
+    loadLanguage(lang);
+    
+    // Add countdown initialization
+    startCountdown();
+    
+    // Rest of your existing code...
+    const params = new URLSearchParams(window.location.search);
+    const count = params.get("guests");
+
+    if (count && count >= 1 && count <= 5) {
+document.getElementById("guestCount").textContent = count;
+    } else {
+      document.getElementById("guestCount").textContent = "1"; // default fallback
+    }
+    
+    // Update active button state
+    const enButton = document.getElementById('en-button');
+    const arButton = document.getElementById('ar-button');
+    if (lang === 'ar') {
+      arButton.classList.add('active');
+      enButton.classList.remove('active');
+    } else {
+      enButton.classList.add('active');
+      arButton.classList.remove('active');
+    }
+    
+    // Initially disable swiping
+    swiper = initializeSwiper(lang, false);
+
+
+    // Update the love button click handler
+    const loveButton = document.querySelector(".love-story-btn");
+    if (loveButton) {
+        loveButton.addEventListener("click", () => {
+            isLoveButtonClicked = true;
+            
+            // Start the audio
+            const audioElement = document.getElementById("playAudio");
+            if (audioElement && isPlaying) {
+                audioElement.play().then(() => {
+                    muteBtn.innerHTML = icons.volume;
+                }).catch(error => {
+                    console.log("Playback prevented:", error);
+                });
+            }
+
+            // Enable correct swipe direction based on language
+            const lang = getLanguageFromURL();
+            swiper.allowTouchMove = true;
+            swiper.noSwiping = false;
+            
+            if (lang === "ar") {
+                swiper.allowSlideNext = false;  // Prevent right swipe in Arabic
+                swiper.allowSlidePrev = true;   // Allow left swipe in Arabic
+            } else {
+                swiper.allowSlideNext = true;   // Allow right swipe in English
+                swiper.allowSlidePrev = false;  // Prevent left swipe in English
+            }
+            
+            // Move to next slide
+            swiper.slideTo(1, 600);
+            swiper.update();
+        });
+    }
+    
+    // Add RSVP deadline check
+    if (isRsvpDeadlinePassed()) {
+      const form = document.getElementById('rsvpForm');
+      const deadlineMessage = document.createElement('div');
+      deadlineMessage.className = 'deadline-message';
+      deadlineMessage.setAttribute('data-i18n-key', 'deadlinePassed');
+      deadlineMessage.textContent = 'RSVP deadline has passed';
+      
+      if (form) {
+        // Disable all form elements
+        const formElements = form.querySelectorAll('input, select, button');
+        formElements.forEach(element => {
+          element.disabled = true;
+        });
+        
+        // Replace form with message
+        form.style.opacity = '0.5';
+        form.parentNode.insertBefore(deadlineMessage, form.nextSibling);
+      }
+    }
 });
 
 function isRsvpDeadlinePassed() {
@@ -306,14 +353,16 @@ function startCountdown() {
   function updateCountdown() {
     const now = new Date();
     const diff = weddingDate - now;
+    const lang = getLanguageFromURL();
+    const translations = supportedLanguages[lang].translations;
 
     if (diff <= 0) {
-      countdownEl.textContent = "It's the big day!";
+      countdownEl.textContent = translations.bigDay;
       return;
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdownEl.textContent = `${days} days left!`;
+    countdownEl.textContent = translations.daysLeft.replace("{days}", days);
   }
 
   if (countdownEl) {

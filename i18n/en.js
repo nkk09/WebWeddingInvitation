@@ -1,44 +1,42 @@
 window.translations_en = {
+  //general
   tab: "Tony & Sandy",
-  title: "Tony<br/>&<br/>Sandy",
-  loveStory: "Our love story...",
-  saveTheDate: "Save The Date",
-  verseText: "To our loved ones,<br/>With your prayers, <br/>May we always say to each other:<br/>\"I'll be there for you\"",
-  groomName: "Tony Boulos",
-  brideName: "Sandy Chedid",
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
+  //cover page
+  title: "Tony<br/>&<br/>Sandy",
+  loveStory: "Our love story...",
+  //quote page
+  verseText: "To our loved ones,<br/>With your prayers, <br/>May we always say to each other:<br/>\"I'll be there for you\"",
+  //invite page
   verse: "\"So they are no longer two, but one. Therefore what God has joined together, let man not separate.\"",
   author: "Matthew 19:6",
-  together: "With our beloved families",
-  parentsOfGroom: "Parents of the Groom",
-  parentsOfBride: "Parents of the Bride",
-  pnamesGroom: "Father Semaan-Nemer & Violette",
-  lastnameGroom: "Boulos",
-  pnamesBride: "Tony & Najah",
-  lastnameBride: "Chedid",
+  blessing: "with a heart full of joy,",
+  invite:"request the honor of your presence at the wedding of their son and daughter",
+  couple: "Tony &amp; Sandy",
+  date: "on Saturday, August 2<sup>nd</sup>, 2025",
+  //details page
   weddingCeremony: "Wedding Ceremony",
-  weddingDate: "Saturday August 2<sup>nd</sup> 2025",
   weddingTime: "6:30 pm",
   churchLocation: "Saint George Church<br/>Zouq el Kharab",
-  churchLocationLink: "Church Location",
   dinnerParty: "Wedding Reception",
-  letsParty: "Dinner Party",
-  dinner: "Dinner",
   dinnerTime: "7:30 pm",
   venueLocation: "Bourgeois Boheme Venue<br/>Zouq el Kharab",
-  venueLocationLink: "Venue Location",
-  giftRegistry: "A thoughtful gesture",
-  giftRegistryIntro: "If you wish to bless us with a gift",
-
+  //gift page
   giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.",
   giftMessage2: "However, for those who wish, a wedding list is available in all WHISH MONEY branches.",
   giftMessage3: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
-  beOurGuest: "Graciously invited",
-  replyBefore: "Please reply before July 2<sup>nd</sup> 2025",
-  numberOfPersons: "Number of guests invited:",
+  //rsvp page
   rsvpPrompt: "Kindly confirm your presence and reply before July 2nd, 2025",
-moreInfo: "For more info:",
-
+  numberOfPersons: "Number of guests invited:",
+  submitRSVP: "Confirm",
+  declineRSVP: "Decline",
+  moreInfo: "For more info:",
+  contactTony: "Tony",
+  contactSandy: "Sandy",
+  //countdown page
+  daysLeft: "{days} days left!",
+  bigDay: "It's the big day!",
+  countdownText: "We can't wait to celebrate our big day with you!",
 };
