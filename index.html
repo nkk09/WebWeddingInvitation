@@ -54,11 +54,11 @@
       <div
         id="mute-button"
         style="
-          position: fixed;
-          top: 10px;
-          left: 10px;
-          z-index: 1000;
-          cursor: pointer;
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 20px) + 20px); /* Increased top margin */
+  left: 20px;
+  z-index: 9999;
+  cursor: pointer;
         "
       >
         <!-- Initially "volume up" icon -->

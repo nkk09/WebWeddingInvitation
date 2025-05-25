@@ -55,6 +55,8 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+      padding-top: env(safe-area-inset-top, 20px);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 /* .falling-leaves {
@@ -150,7 +152,8 @@ body, html {
     justify-content: center;
     align-items: center;
     direction: ltr;
-    padding: 0;
+  padding-top: calc(env(safe-area-inset-top, 20px) + 60px); /* Space for mute button */
+  padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 120px); /* Space for pagination and language buttons */
     height: 100%;
     width: 100%;
   }
@@ -597,6 +600,8 @@ form {
     align-items: center;
     direction: ltr;
     padding-top: 0; /* No padding for first slide */
+      padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 120px);
+
 }
 
 .time-container {
@@ -862,7 +867,7 @@ form {
 
 .language-buttons {
   position: fixed;
-  bottom: calc(env(safe-area-inset-bottom, 10px) + 12px);
+  bottom: calc(env(safe-area-inset-bottom, 20px) + 20px); /* Increased bottom margin */
   left: 0;
   right: 0;
   display: flex;
@@ -1124,7 +1129,7 @@ form {
 /* Update pagination styling */
 .swiper-pagination {
     position: fixed;
-    bottom: 65px;  /* Increase bottom distance to clear language buttons */
+  bottom: calc(env(safe-area-inset-bottom, 20px) + 80px); /* Place above language buttons */
     left: 0;       /* Reset left positioning */
     right: 0;      /* Add right positioning */
     width: 100%;   /* Full width */
@@ -1133,7 +1138,7 @@ form {
     align-items: center;     /* Center vertically */
     transform: none;         /* Remove transform */
     z-index: 1000;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
