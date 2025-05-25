@@ -390,19 +390,12 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.5);
 }
-.ceremony {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-}
+
 .ceremonydetails {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-bottom: 30px;
-    margin-top: 15px;
 }
 
 /* Add spacing before second title */
@@ -584,8 +577,6 @@ form {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 10px;
-    margin-top: 8px;  /* Add this small spacing */
 }
 
 .wedding-date {
