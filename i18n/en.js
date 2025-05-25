@@ -37,7 +37,7 @@ window.translations_en = {
   giftMessage3: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
   beOurGuest: "Graciously invited",
   replyBefore: "Please reply before July 2<sup>nd</sup> 2025",
-  numberOfPersons: "Number of people:",
+  numberOfPersons: "Number of guests invited:",
   rsvpPrompt: "Kindly confirm your presence and reply before July 2nd, 2025",
 moreInfo: "For more info:",
 

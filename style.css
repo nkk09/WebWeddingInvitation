@@ -228,7 +228,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;  /* Change from space-between to flex-start */
-    gap: 2rem;  /* Add gap between elements */
+    gap: 0rem;
 }
 
 .registry-intro {
@@ -1055,4 +1055,19 @@ form {
   font-size: 16px;
   font-family: 'Lora', serif;
   pointer-events: none;
+}
+
+.inline-guest-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 18px;
+  font-family: 'Lora', serif;
+}
+
+.guest-count-display {
+  font-weight: bold;
+  font-size: 18px;
 }

@@ -187,9 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const count = params.get("guests");
 
   if (count && count >= 1 && count <= 5) {
-    document.getElementById("guestCount").value = count;
+document.getElementById("guestCount").textContent = count;
   } else {
-    document.getElementById("guestCount").value = "1"; // default fallback
+    document.getElementById("guestCount").textContent = "1"; // default fallback
   }
   
   // Update active button state

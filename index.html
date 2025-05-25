@@ -171,7 +171,7 @@
           </div>
           <div class="swiper-slide">
   <div class="wedding-gift">
-    <i class="fa fa-gift" style="font-size: 28px; color: white; margin-bottom: 20px;"></i>
+    <i class="fa fa-gift" style="font-size: 28px; color: white; margin-bottom: 20px; margin-top: 15px;"></i>
 
     <div class="gift" style="background: none; box-shadow: none; border: none; padding: 0;">
       <div class="giftdetails" data-i18n-key="giftMessage1">
@@ -202,10 +202,11 @@
                  placeholder="Your name(s)" data-i18n-key="namePlaceholder">
         </div>
 
-<div class="form-group">
-  <label data-i18n-key="numberOfPersons">Number of guests invited:</label>
-  <input type="text" id="guestCount" name="guestCount" readonly>
+<div class="inline-guest-count">
+  <label for="guestCount" data-i18n-key="numberOfPersons">Number of guests invited:</label>
+  <span id="guestCount" class="guest-count-display">1</span>
 </div>
+
 
         <div class="button-group">
           <button type="submit" class="rsvp-button" data-i18n-key="submitRSVP" onclick="handleRSVP(event)">
