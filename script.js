@@ -268,12 +268,14 @@ function switchLanguage(lang) {
       swiper.noSwiping = false;
       swiper.allowSlideNext = true;   // Allow next for both languages
       swiper.allowSlidePrev = true;   // Allow prev for both languages
-      if (currentIndex === 0) {
-        swiper.slideTo(1, 0);         // Ensure we're not on cover page
-      } else {
-        swiper.slideTo(currentIndex, 0);
-      }
+      // if (currentIndex === 0) {
+      //   swiper.slideTo(1, 0);         // Ensure we're not on cover page
+      // } else {
+      //   swiper.slideTo(currentIndex, 0);
+      // }
     }
+
+    swiper.slideTo(1,0);
   }
 }
 
