@@ -182,6 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = getLanguageFromURL();
   loadLanguage(lang);
   
+  // Add guest count handling
+  const params = new URLSearchParams(window.location.search);
+  const count = params.get("guests");
+
+  if (count && count >= 1 && count <= 5) {
+    document.getElementById("guestCount").value = count;
+  } else {
+    document.getElementById("guestCount").value = "1"; // default fallback
+  }
+  
   // Update active button state
   const enButton = document.getElementById('en-button');
   const arButton = document.getElementById('ar-button');

@@ -1,10 +1,10 @@
 window.translations_ar = {
-  tab: "أنطوان وساندي",
-  title: "أنطوان<br>وساندي",
+  tab: "طوني وساندي",
+  title: "طوني<br>وساندي",
   loveStory: "قصة حبنا...",
   saveTheDate: "احفظ التاريخ",
   verseText: "إلى أحبائنا،<br/>بدعواتكم،<br/>نتمنى أن نقول لبعضنا البعض دائمًا:<br/>\"سأكون هنا من أجلك\"",
-  groomName: "أنطوان بولس",
+  groomName: "طوني بولس",
   brideName: "ساندي شديد",
   langEnglish: "English",
   langFrench: "Français",

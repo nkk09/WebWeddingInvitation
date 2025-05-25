@@ -46,11 +46,11 @@ body, html {
 }
 
 .parent {
-    position: absolute;
-    height: 100vh; /* Changed from fixed height */
-    width: 100vw; /* Changed from fixed width */
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
     max-width: 375px;
-    margin: auto;
+    margin: 0;
     overflow: hidden;
     top: 50%;
     left: 50%;
@@ -137,9 +137,12 @@ body, html {
 .swiper {
     width: 100%;
     height: 100%;
-  }
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-  .swiper-slide {
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: transparent;
@@ -147,7 +150,9 @@ body, html {
     justify-content: center;
     align-items: center;
     direction: ltr;
-    padding-top: clamp(20px, 5vh, 50px); /* Add this line */
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
   .blur {
     background: rgba(0, 0, 0, 0.6);
@@ -236,26 +241,25 @@ body, html {
 }
 
 .gift {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  width: 80%;
-  max-width: 320px;
-  text-align: center;
-  margin-top: 0;
-  color: white;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto auto 0;
 }
 
 .giftdetails {
-  font-size: 20px;
+  font-size: clamp(18px, 4vw, 22px);
   line-height: 1.6;
+  color: white;
   opacity: 0.95;
 }
 
@@ -435,7 +439,7 @@ body, html {
     align-items: center;
     gap: 15px;
     margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 /* Add spacing before second title */
@@ -712,8 +716,9 @@ form {
 .contact-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .contact-button {
@@ -727,6 +732,7 @@ form {
   text-decoration: none;
   color: white;
   transition: all 0.3s ease;
+  font-family: 'Lora', serif;
 }
 
 .contact-button:hover {
@@ -912,4 +918,141 @@ form {
 .lang-btn.active {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
+}
+
+.quote-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 32px);
+  color: white;
+  line-height: 1.6;
+  font-style: italic;
+  max-width: 90%;
+  text-wrap: balance;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-slide.quote-page {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+
+.verse-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+  color: white;
+  gap: 1.5rem;
+}
+
+.verse-section {
+  max-width: 90%;
+}
+
+.verse-text {
+  font-size: clamp(18px, 4vw, 24px);
+  font-style: italic;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.verse-author {
+  font-size: clamp(14px, 3vw, 18px);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.families-blessing {
+  font-size: clamp(18px, 4vw, 22px);
+  margin: 10px auto;
+  line-height: 1.6;
+}
+
+.fancy-family {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(26px, 5vw, 34px);
+  margin-top: 0.3rem;
+}
+
+.invite-text {
+  font-size: clamp(18px, 4vw, 22px);
+  margin-top: 0;
+}
+
+.couple-names {
+  margin-bottom: 1.5rem;
+}
+
+.fancy-names {
+  font-family: 'LovelyHome', 'Great Vibes', cursive;
+  font-size: clamp(32px, 6vw, 48px);
+}
+
+.wedding-date {
+  font-size: clamp(18px, 4vw, 22px);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.swiper-slide.verse-page {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.more-info-text {
+  font-size: clamp(16px, 4vw, 20px);
+  color: white;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+
+.rsvp-prompt {
+  font-size: clamp(18px, 5vw, 24px);
+  color: white;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.more-info-text {
+  font-size: clamp(16px, 4vw, 20px);
+  color: white;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+#guestCount[readonly] {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Lora', serif;
+  pointer-events: none;
 }

@@ -1,10 +1,10 @@
 window.translations_en = {
-  tab: "Antoine & Sandy",
-  title: "Antoine<br/>&<br/>Sandy",
+  tab: "Tony & Sandy",
+  title: "Tony<br/>&<br/>Sandy",
   loveStory: "Our love story...",
   saveTheDate: "Save The Date",
   verseText: "To our loved ones,<br/>With your prayers, <br/>May we always say to each other:<br/>\"I'll be there for you\"",
-  groomName: "Antoine Boulos",
+  groomName: "Tony Boulos",
   brideName: "Sandy Chedid",
   langEnglish: "English",
   langFrench: "Français",
@@ -32,9 +32,13 @@ window.translations_en = {
   giftRegistry: "A thoughtful gesture",
   giftRegistryIntro: "If you wish to bless us with a gift",
 
-  giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.<br/>However, for those who wish, a wedding list is available in all WHISH MONEY branches.",
-  giftMessage2: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
+  giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.",
+  giftMessage2: "However, for those who wish, a wedding list is available in all WHISH MONEY branches.",
+  giftMessage3: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
   beOurGuest: "Graciously invited",
   replyBefore: "Please reply before July 2<sup>nd</sup> 2025",
-  numberOfPersons: "Number of people:"
+  numberOfPersons: "Number of people:",
+  rsvpPrompt: "Kindly confirm your presence and reply before July 2nd, 2025",
+moreInfo: "For more info:",
+
 };
