@@ -574,7 +574,7 @@ form {
 /* Fix for RTL text display in swiper slides */
 [dir="rtl"] .swiper-slide {
     direction: rtl !important;
-    text-align: right !important;
+    text-align: center !important;
 }
 
 .swiper-slide:not(:first-child) {
