@@ -12,9 +12,9 @@ window.translations_en = {
   //invite page
   verse: "\"So they are no longer two, but one. Therefore what God has joined together, let man not separate.\"",
   author: "Matthew 19:6",
-  blessing:  "With a heart full of joy,<span class=\"fancy-family\">the Boulos &amp; Chedid families</span>",
+  blessing: "With a heart full of joy,<span class=\"fancy-family\">the <span class=\"boulos\">Boulos</span> & <span class=\"chedid\">Chedid</span> families</span>",
   invite:"request the honor of your presence at the wedding of their son and daughter",
-  couple: "Tony &amp; Sandy",
+  couple: "Tony <span class=\"and\">&</span> Sandy",
   date: "on Saturday, August 2<sup>nd</sup>, 2025",
   //details page
   weddingCeremony: "Wedding Ceremony",

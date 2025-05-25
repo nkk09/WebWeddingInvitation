@@ -933,9 +933,24 @@ form {
   line-height: 1.6;
 }
 
+.boulos {
+  font-family: var(--main-font);
+  margin-right: 2px;
+  margin-left: -4px;
+  font-style: normal;
+}
+
+.chedid {
+  font-family: var(--main-font);
+  margin-right: 8px;
+  margin-left: -8px;
+  font-style: normal;
+}
+
 .fancy-family {
   display: block;
-    font-family: var(--main-font);
+    font-family: var(--family-font);
+    font-style: italic;
   font-size: clamp(26px, 5vw, 34px);
   margin-top: 0.3rem;
 }
@@ -952,6 +967,14 @@ form {
 .fancy-names {
     font-family: var(--main-font);
     font-size: clamp(32px, 6vw, 48px);
+}
+
+.and {
+  font-family: var(--main-font);
+  font-size: clamp(32px, 6vw, 48px);
+  font-style: italic;
+  margin-left: 8px;
+  margin-right: -4px;
 }
 
 .wedding-date {
@@ -1185,13 +1208,16 @@ form {
 
 :root {
     --main-font: 'LovelyHome';
+    --family-font: 'Times New Roman', Times, serif;
 }
 
 /* Add language-specific font settings */
 [dir="rtl"] {
     --main-font: 'arabic';
+    --family-font: 'arabic';
 }
 
 [dir="ltr"] {
-    --main-font: 'LovelyHome';
+    --main-font: 'LovelyHome', 'Times New Roman', Times, serif;
+    --family-font: 'Times New Roman', Times, serif;
 }
