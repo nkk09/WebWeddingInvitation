@@ -155,7 +155,13 @@ function applyTranslations(translations) {
   elements.forEach((el) => {
     const key = el.getAttribute("data-i18n-key");
     if (translations && translations[key]) {
-      el.innerHTML = translations[key]; // Changed from textContent to innerHTML
+      if (el.placeholder !== undefined) {
+        // Handle placeholder translation
+        el.placeholder = translations[key];
+      } else {
+        // Handle regular content translation
+        el.innerHTML = translations[key];
+      }
     }
   });
 }
@@ -313,6 +319,7 @@ document.getElementById("guestCount").textContent = count;
 
     // Add countdown initialization
     await startCountdown();
+    handleGuestNameInput();
 
     // Update the love button click handler
     const loveButton = document.querySelector(".love-story-btn");
@@ -374,19 +381,90 @@ function isRsvpDeadlinePassed() {
   return today > deadline;
 }
 
+function validateGuestName(nameInput) {
+    // Split names by comma or 'and'
+    const names = nameInput.split(/,|\sand\s/);
+    
+    // Trim and validate each name
+    return names.every(name => {
+        const trimmedName = name.trim();
+        if (!trimmedName) return false;
+        
+        // Check if name contains only letters, spaces, and common special characters
+        const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/;
+        return nameRegex.test(trimmedName);
+    });
+}
+
+function formatNames(nameInput) {
+    // Split names by comma or 'and'
+    const names = nameInput.split(/,|\sand\s/);
+    
+    // Format each name
+    const formattedNames = names.map(name => {
+        return name
+            .trim()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+    });
+    
+    // Join names with commas and 'and' for the last one
+    if (formattedNames.length === 1) return formattedNames[0];
+    if (formattedNames.length === 2) return formattedNames.join(' and ');
+    return formattedNames.slice(0, -1).join(', ') + ', and ' + formattedNames.slice(-1);
+}
+
+function handleGuestNameInput() {
+    const guestNameInput = document.getElementById('guestName');
+    let errorMessageEl = guestNameInput.parentElement.querySelector('.error-message');
+    
+    // Create error message element if it doesn't exist
+    if (!errorMessageEl) {
+        errorMessageEl = document.createElement('div');
+        errorMessageEl.className = 'error-message';
+        guestNameInput.parentElement.appendChild(errorMessageEl);
+    }
+
+    guestNameInput.addEventListener('input', (e) => {
+        const nameInput = e.target.value;
+        const isValid = validateGuestName(nameInput);
+        
+        if (!isValid && nameInput.trim()) {
+            errorMessageEl.textContent = supportedLanguages[currentLang].translations.invalidNameError || 'Please enter valid names (separated by commas or "and")';
+            errorMessageEl.classList.add('show');
+            guestNameInput.setCustomValidity('Invalid name format');
+        } else {
+            errorMessageEl.classList.remove('show');
+            guestNameInput.setCustomValidity('');
+        }
+    });
+
+    guestNameInput.addEventListener('blur', () => {
+        if (guestNameInput.value.trim()) {
+            guestNameInput.value = formatNames(guestNameInput.value);
+        }
+    });
+}
+
+// Update the handleRSVP function to include the guest name
 function handleRSVP(event) {
   event.preventDefault();
+  const guestName = document.getElementById('guestName').value.trim();
   const count = document.getElementById('guestCount').textContent;
   
   const message = `Hello Antoine & Sandy! 
-I would like to confirm my attendance with ${count} guest(s).`;
+I would like to confirm the attendance of ${guestName} (total: ${count} guest(s)).`;
   
   window.open(`https://wa.me/96171486921?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 function handleDecline() {
+  const guestName = document.getElementById('guestName').value.trim();
+  const count = document.getElementById('guestCount').textContent;
+
   const message = `Hello Antoine & Sandy! 
-Unfortunately, I will not be able to attend your wedding celebration. Thank you for thinking of me.`;
+Unfortunately, I will not be able to attend your wedding celebration. Thank you for thinking of me. (Guests: (${count}) ${guestName})`;
   
   window.open(`https://wa.me/96171486921?text=${encodeURIComponent(message)}`, '_blank');
 }

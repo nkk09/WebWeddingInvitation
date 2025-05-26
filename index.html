@@ -203,6 +203,18 @@
 
     <div class="inv">
       <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
+        <div class="guest-name-group">
+  <label for="guestName" data-i18n-key="guestNameLabel">Guest Name(s):</label>
+  <input
+    type="text"
+    id="guestName"
+    name="guestName"
+    class="guest-name-input"
+    data-i18n-key="guestNamePlaceholder"
+    placeholder="Enter your name(s)"
+    required
+  />
+</div>
   <div class="inline-guest-count">
     <label for="guestCount" data-i18n-key="numberOfPersons">Number of guests invited:</label>
     <span id="guestCount" class="guest-count-display">1</span>

@@ -1262,3 +1262,54 @@ form {
   unicode-bidi: bidi-override;
   display: inline-block;
 }
+
+.guest-name-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.guest-name-group label {
+  color: white;
+  font-size: 18px;
+  font-family: 'Lora', serif;
+}
+
+.guest-name-input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.guest-name-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.guest-name-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.guest-name-input:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+  opacity: 1;
+}

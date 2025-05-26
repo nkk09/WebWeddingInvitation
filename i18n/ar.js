@@ -30,6 +30,9 @@ window.translations_ar = {
   giftMessage3: "الرقم التعريفي : <span class=\"force-ltr\">20672804-03</span><br/>رقم الهاتف : <span class=\"force-ltr\">71 486 921</span>",
   //rsvp page
   rsvpPrompt: "يرجى تأكيد حضوركم والرد قبل 2 تموز 2025",
+  guestNameLabel: "اسم المدعو(ين):",
+  guestNamePlaceholder: "أدخل الاسم(اء) مفصولة بفواصل",
+  invalidNameError: "الرجاء إدخال الاسم بالشكل الصحيح",
   numberOfPersons: "عدد المدعوين:",
   submitRSVP: "تأكيد",
   declineRSVP: "اعتذار",

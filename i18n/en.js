@@ -29,6 +29,9 @@ window.translations_en = {
   giftMessage3: "Registry ID : 20672804-03<br/>Phone number : 71 486 921",
   //rsvp page
   rsvpPrompt: "Kindly confirm your presence and reply before July 2nd, 2025",
+  guestNameLabel: "Guest Name(s):",
+  guestNamePlaceholder: "Enter name(s) separated by commas",
+  invalidNameError: "Please enter a valid name",
   numberOfPersons: "Number of guests invited:",
   submitRSVP: "Confirm",
   declineRSVP: "Decline",
