@@ -1,6 +1,6 @@
 window.translations_ar = {
   //general
-  tab: "طوني وساندي",
+  tab: "زفاف طوني وساندي",
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
@@ -12,7 +12,7 @@ window.translations_ar = {
   //invite page
   verse: "\"إِذًا لَيْسَا بَعْدُ اثْنَيْنِ بَلْ جَسَدٌ وَاحِدٌ. فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ.\"",
   author: "متى 19:6",
-  blessing: "بقلب مليئ بالفرح،<span class=\"fancy-family\">عائلتا بولس وشديد</span>",
+  blessing: "بقلب مليء بالفرح،<span class=\"fancy-family\">عائلتا بولس وشديد</span>",
   invite: "تتشرفان بدعوتكم لحضور حفل زفاف ابنهما وابنتهما",
   couple: "طوني وساندي",
   date: "يوم السبت، 2 آب 2025",
@@ -20,10 +20,10 @@ window.translations_ar = {
   weddingCeremony: "حفل الزفاف",
   weddingDate: "السبت 2 آب 2025",
   weddingTime: "6:30 مساءً",
-  churchLocation: "كنيسة القديس جورج<br/>زوق الخراب",
-  dinnerParty: "عشاء الزفاف",
+  churchLocation: "كنيسة مار جرجس<br/>زوق الخراب",
+  dinnerParty: "العشاء",
   dinnerTime: "7:30 مساءً",
-  venueLocation: "بورجوا بوهيم<br/>زوق الخراب",
+  venueLocation: "Bourgeois Boheme<br/>زوق الخراب",
   //gift page
   giftMessage1: "وجودكم هو أجمل هدية، وحبكم ودعمكم يعنيان لنا الكثير.",
   giftMessage2: "ومع ذلك، لمن يرغب، يتوفر سجل زفاف في جميع فروع WHISH MONEY.",

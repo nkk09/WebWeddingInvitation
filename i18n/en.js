@@ -1,6 +1,6 @@
 window.translations_en = {
   //general
-  tab: "Tony &amp; Sandy",
+  tab: "Tony &amp; Sandy's Wedding",
   langEnglish: "English",
   langFrench: "Français",
   langArabic: "العربية",
