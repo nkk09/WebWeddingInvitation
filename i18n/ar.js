@@ -27,7 +27,7 @@ window.translations_ar = {
   //gift page
   giftMessage1: "وجودكم هو أجمل هدية، وحبكم ودعمكم يعنيان لنا الكثير.",
   giftMessage2: "ومع ذلك، لمن يرغب، يتوفر سجل زفاف في جميع فروع WHISH MONEY.",
-  giftMessage3: "الرقم التعريفي : 20672804-03<br/>رقم الهاتف : 71 486 921",
+  giftMessage3: "الرقم التعريفي : <span class=\"force-ltr\">20672804-03</span><br/>رقم الهاتف : <span class=\"force-ltr\">71 486 921</span>",
   //rsvp page
   rsvpPrompt: "يرجى تأكيد حضوركم والرد قبل 2 تموز 2025",
   numberOfPersons: "عدد المدعوين:",

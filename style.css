@@ -1221,3 +1221,9 @@ form {
     --main-font: 'LovelyHome', 'Times New Roman', Times, serif;
     --family-font: 'Times New Roman', Times, serif;
 }
+
+.force-ltr {
+  direction: ltr !important;
+  unicode-bidi: bidi-override;
+  display: inline-block;
+}
