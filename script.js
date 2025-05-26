@@ -313,7 +313,7 @@ document.getElementById("guestCount").textContent = count;
 
     // Add countdown initialization
     await startCountdown();
-    
+
     // Update the love button click handler
     const loveButton = document.querySelector(".love-story-btn");
     if (loveButton) {
@@ -426,25 +426,42 @@ function startCountdown() {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
       // Format with leading zeros
       const formattedHours = hours.toString().padStart(2, '0');
       const formattedMinutes = minutes.toString().padStart(2, '0');
+      const formattedSeconds = seconds.toString().padStart(2, '0');
 
-      countdownEl.textContent = translations.daysLeft
-        .replace("{days}", days)
-        .replace("{hours}", formattedHours)
-        .replace("{minutes}", formattedMinutes);
+      countdownEl.innerHTML = `
+  <div class="countdown-item">
+    <div class="countdown-number">${days}</div>
+    <div class="countdown-label">${translations.labelDays || 'DAYS'}</div>
+  </div>
+  <div class="colon">:</div>
+  <div class="countdown-item">
+    <div class="countdown-number">${formattedHours}</div>
+    <div class="countdown-label">${translations.labelHours || 'HOURS'}</div>
+  </div>
+  <div class="colon">:</div>
+  <div class="countdown-item">
+    <div class="countdown-number">${formattedMinutes}</div>
+    <div class="countdown-label">${translations.labelMinutes || 'MINUTES'}</div>
+  </div>
+  <div class="colon">:</div>
+  <div class="countdown-item">
+    <div class="countdown-number">${formattedSeconds}</div>
+    <div class="countdown-label">${translations.labelSeconds || 'SECONDS'}</div>
+  </div>
+`;
+
     } catch (error) {
       console.error('Error updating countdown:', error);
     }
   }
 
   if (countdownEl) {
-    // Initial update with a small delay to ensure translations are loaded
-    setTimeout(updateCountdown, 100);
     // Set up regular updates
-    setInterval(updateCountdown, 1000 * 60);
+    setInterval(updateCountdown, 1000);
   }
 }
 

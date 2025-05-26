@@ -37,7 +37,11 @@ window.translations_ar = {
   contactTony: "طوني",
   contactSandy: "ساندي",
   //countdown page
-  daysLeft: "{days}:{hours}:{minutes}",
+  daysLeft: "{days}:{hours}:{minutes}:{seconds}",
+  labelDays: "أيام",
+  labelHours: "ساعات",  
+  labelMinutes: "دقايق",
+  labelSeconds: "ثواني",
   bigDay: "اليوم الكبير!",
   countdownText: "لا يمكننا الانتظار للاحتفال بيومنا الكبير معكم!",
 };

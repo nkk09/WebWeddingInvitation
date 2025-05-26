@@ -36,7 +36,11 @@ window.translations_en = {
   contactTony: "Tony",
   contactSandy: "Sandy",
   //countdown page
-  daysLeft: "{days}:{hours}:{minutes}",
+  daysLeft: "{days}:{hours}:{minutes}:{seconds}",
+  labelDays: "DAYS",
+  labelHours: "HOURS",  
+  labelMinutes: "MINUTES",
+  labelSeconds: "SECONDS",
   bigDay: "It's the big day!",
   countdownText: "We can't wait to celebrate our big day with you!",
 };
