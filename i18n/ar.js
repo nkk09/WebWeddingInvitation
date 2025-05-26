@@ -37,7 +37,7 @@ window.translations_ar = {
   contactTony: "طوني",
   contactSandy: "ساندي",
   //countdown page
-  daysLeft: "ايام متبقية: {days}!",
+  daysLeft: "{days}:{hours}:{minutes}",
   bigDay: "اليوم الكبير!",
   countdownText: "لا يمكننا الانتظار للاحتفال بيومنا الكبير معكم!",
 };

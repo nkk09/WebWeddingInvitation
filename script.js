@@ -393,7 +393,7 @@ Unfortunately, I will not be able to attend your wedding celebration. Thank you 
 
 // Add the countdown function at the end of the file
 function startCountdown() {
-  const weddingDate = new Date("2025-08-02T00:00:00");
+  const weddingDate = new Date("2025-08-02T18:30:00"); // Set to 6:30 PM wedding time
   const countdownEl = document.getElementById("countdown");
 
   function updateCountdown() {
@@ -407,13 +407,26 @@ function startCountdown() {
       return;
     }
 
+    // Calculate days, hours, minutes
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdownEl.textContent = translations.daysLeft.replace("{days}", days);
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    // Format with leading zeros
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+
+    // Update translations object in each language file (en.js, ar.js, fr.js) to add:
+    // timeLeft: "{days} days : {hours} hours : {min} minutes"
+    countdownEl.textContent = translations.timeLeft
+      .replace("{days}", days)
+      .replace("{hours}", formattedHours)
+      .replace("{min}", formattedMinutes);
   }
 
   if (countdownEl) {
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1000 * 60); // Update every minute
   }
 }
 
