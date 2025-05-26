@@ -280,14 +280,12 @@ function switchLanguage(lang) {
   }
 }
 
-// Update the event listener in the DOMContentLoaded section
 document.addEventListener("DOMContentLoaded", async () => {
     // Keep existing initialization code
     const lang = getLanguageFromURL();
-    loadLanguage(lang);
+    await loadLanguage(lang);
     
-    // Add countdown initialization
-    startCountdown();
+
     
     // Rest of your existing code...
     const params = new URLSearchParams(window.location.search);
@@ -313,7 +311,9 @@ document.getElementById("guestCount").textContent = count;
     // Initially disable swiping
     swiper = initializeSwiper(lang, false);
 
-
+    // Add countdown initialization
+    await startCountdown();
+    
     // Update the love button click handler
     const loveButton = document.querySelector(".love-story-btn");
     if (loveButton) {
@@ -393,40 +393,58 @@ Unfortunately, I will not be able to attend your wedding celebration. Thank you 
 
 // Add the countdown function at the end of the file
 function startCountdown() {
-  const weddingDate = new Date("2025-08-02T18:30:00"); // Set to 6:30 PM wedding time
+  const weddingDate = new Date("2025-08-02T18:30:00");
   const countdownEl = document.getElementById("countdown");
 
   function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate - now;
-    const lang = getLanguageFromURL();
-    const translations = supportedLanguages[lang].translations;
+    try {
+      const now = new Date();
+      const diff = weddingDate - now;
+      const lang = getLanguageFromURL();
+      
+      // Check if translations exist
+      if (!supportedLanguages[lang] || !supportedLanguages[lang].translations) {
+        console.warn('Translations not loaded yet, retrying in 1 second...');
+        setTimeout(updateCountdown, 1000);
+        return;
+      }
 
-    if (diff <= 0) {
-      countdownEl.textContent = translations.bigDay;
-      return;
+      const translations = supportedLanguages[lang].translations;
+
+      // Check if required translation key exists
+      if (!translations.daysLeft) {
+        console.error('Missing daysLeft translation key');
+        return;
+      }
+
+      if (diff <= 0) {
+        countdownEl.textContent = translations.bigDay || "It's the Big Day!";
+        return;
+      }
+
+      // Calculate days, hours, minutes
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+      // Format with leading zeros
+      const formattedHours = hours.toString().padStart(2, '0');
+      const formattedMinutes = minutes.toString().padStart(2, '0');
+
+      countdownEl.textContent = translations.daysLeft
+        .replace("{days}", days)
+        .replace("{hours}", formattedHours)
+        .replace("{minutes}", formattedMinutes);
+    } catch (error) {
+      console.error('Error updating countdown:', error);
     }
-
-    // Calculate days, hours, minutes
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-    // Format with leading zeros
-    const formattedHours = hours.toString().padStart(2, '0');
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-
-    // Update translations object in each language file (en.js, ar.js, fr.js) to add:
-    // timeLeft: "{days} days : {hours} hours : {min} minutes"
-    countdownEl.textContent = translations.timeLeft
-      .replace("{days}", days)
-      .replace("{hours}", formattedHours)
-      .replace("{min}", formattedMinutes);
   }
 
   if (countdownEl) {
-    updateCountdown();
-    setInterval(updateCountdown, 1000 * 60); // Update every minute
+    // Initial update with a small delay to ensure translations are loaded
+    setTimeout(updateCountdown, 100);
+    // Set up regular updates
+    setInterval(updateCountdown, 1000 * 60);
   }
 }
 
