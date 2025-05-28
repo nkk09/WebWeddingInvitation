@@ -18,10 +18,10 @@ window.translations_en = {
   date: "on Saturday, August 2<sup>nd</sup>, 2025",
   //details page
   weddingCeremony: "Wedding Ceremony",
-  weddingTime: "6:30 pm",
+  weddingTime: "6:45 pm",
   churchLocation: "Saint George Church<br/>Zouq el Kharab",
   dinnerParty: "Wedding Reception",
-  dinnerTime: "7:30 pm",
+  dinnerTime: "7:45 pm",
   venueLocation: "Bourgeois Boheme Venue<br/>Zouq el Kharab",
   //gift page
   giftMessage1: "Your presence is the greatest gift, and your love and support mean the world to us.",

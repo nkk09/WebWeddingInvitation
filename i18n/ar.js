@@ -19,10 +19,10 @@ window.translations_ar = {
   //details page
   weddingCeremony: "حفل الزفاف",
   weddingDate: "السبت 2 آب 2025",
-  weddingTime: "6:30 مساءً",
+  weddingTime: "6:45 مساءً",
   churchLocation: "كنيسة مار جرجس<br/>زوق الخراب",
   dinnerParty: "العشاء",
-  dinnerTime: "7:30 مساءً",
+  dinnerTime: "7:45 مساءً",
   venueLocation: "Bourgeois Boheme<br/>زوق الخراب",
   //gift page
   giftMessage1: "وجودكم هو أجمل هدية، وحبكم ودعمكم يعنيان لنا الكثير.",
